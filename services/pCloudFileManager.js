@@ -22,7 +22,7 @@ function PCloudFileManager(settings) {
 		title: 'pCloud',
 		icon: 'icon-pcloud',
 		chooseTitle: 'pCloud',
-		chooseDescription: 'Access password files stored on pCloud. Files will be retrieved from pCould each time they are used.',
+		chooseDescription: 'Access password files stored on pCloud. Files will be retrieved from pCloud each time they are used.',
 	};
 
 	oauth.searchRequestFunction = function (token) {
