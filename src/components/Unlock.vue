@@ -471,7 +471,7 @@ export default {
   .remember-period-picker {
     margin: 6px 0px;
     input[type="range"] {
-      -webkit-appearance: none;
+			-webkit-appearance: none;
       margin: 6px;
       margin-left: 0px;
     }
@@ -496,6 +496,24 @@ export default {
     background: white;
     cursor: pointer;
     -webkit-appearance: none;
+    margin-top: -7px;
+	}
+	input[type="range"]::-moz-slider-runnable-track {
+    height: 6px;
+    cursor: pointer;
+    animate: 0.2s;
+    background: $blue;
+    border-radius: 1.3px;
+    border: 0.2px solid #010101;
+    margin-top: -2px;
+  }
+	input[type="range"]::-moz-slider-thumb {
+    border: 1px solid black;
+    height: 18px;
+    width: 10px;
+    border-radius: 2px;
+    background: white;
+    cursor: pointer;
     margin-top: -7px;
   }
 }

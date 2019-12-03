@@ -48,7 +48,7 @@
     "ignore-loader": "^0.1.2",
     "mocha": "^4.1.0",
     "mocha-loader": "^1.1.2",
-    "node-sass": "^4.5.3",
+    "node-sass": "^4.13.0",
     "sass-loader": "^6.0.6",
     "should": "^13.2.0",
     "sinon": "^4.1.4",

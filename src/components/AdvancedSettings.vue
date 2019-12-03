@@ -178,7 +178,7 @@ export default {
 			</div>
 		</div>
 
-		<div class="box-bar roomy" v-if="!isFirefox()">
+		<!--<div class="box-bar roomy" v-if="!isFirefox()">
 			<h4>Grant Permission on All Websites</h4>
 			<p><strong style="color:#d9534f">Only proceed if you know what you're doing.</strong> If enabled, the extension prompts once for permission to access and change data on all websites which disables the permissions popup on each new website. This has <a href="https://github.com/subdavis/Tusk/issues/168">serious security implications</a>.  Only applies to Chrome.  Because of a Chrome bug, it is currently impossible to revoke this permission again after it is enabled.  If you turn this ON, Tusk must be reinstalled to reset.</p>
 		</div>
@@ -192,11 +192,11 @@ export default {
 					</label>
 				</div>
 			</div>
-		</div>
+		</div>-->
 
 		<div class="box-bar roomy">
 			<h4>Notification</h4>
-			<p>Choose which type of notification do you want to receive from Tusk.</p>
+			<p>Choose which type of notifications you want to receive from Tusk.</p>
 		</div>
 		<div class="box-bar roomy lighter">
 			<div>
