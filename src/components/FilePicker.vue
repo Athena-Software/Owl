@@ -49,7 +49,7 @@ export default {
 
 <template>
 	<div>
-		<div v-for="(db, index) in databases" class="box-bar small selectable flair chooseFile" @click="selectDatabase(index)">
+		<div v-for="(db, index) in databases" :key="index" class="box-bar small selectable flair chooseFile" @click="selectDatabase(index)">
 			<span>
 				<svg class="icon" viewBox="0 0 1 1">
 					<use v-bind="{'xlink:href':'#'+db.provider.icon}" />

@@ -45,7 +45,7 @@ export default {
 			appVersion: chrome.runtime.getManifest().version,
 			slider_options: [{
 				time: 0,
-				text: "Do not remember"
+				text: "Do not remember."
 			},
 			{
 				time: 30,
@@ -365,7 +365,7 @@ export default {
 				<div class="stack-item keyfile-picker" v-if="keyFilePicker">
 					<transition name="keyfile-picker">
 						<div>
-							<span class="selectable" v-for="(kf, kf_index) in keyFiles" :keyfile-index="kf_index" @click="chooseKeyFile(kf_index)">
+							<span class="selectable" v-for="(kf, kf_index) in keyFiles" :key="kf_index" :keyfile-index="kf_index" @click="chooseKeyFile(kf_index)">
 								<i class="fa fa-file fa-fw" aria-hidden="true"></i> {{ kf.name }}
 							</span>
 							<span @click="links.openOptionsKeyfiles" class="selectable">
@@ -482,7 +482,7 @@ export default {
   input[type="range"]::-webkit-slider-runnable-track {
     height: 6px;
     cursor: pointer;
-    animate: 0.2s;
+    animation: 0.2s;
     background: $blue;
     border-radius: 1.3px;
     border: 0.2px solid #010101;
@@ -498,16 +498,16 @@ export default {
     -webkit-appearance: none;
     margin-top: -7px;
 	}
-	input[type="range"]::-moz-slider-runnable-track {
+	input[type="range"]::-moz-range-track {
     height: 6px;
     cursor: pointer;
-    animate: 0.2s;
+    animation: 0.2s;
     background: $blue;
     border-radius: 1.3px;
     border: 0.2px solid #010101;
     margin-top: -2px;
   }
-	input[type="range"]::-moz-slider-thumb {
+	input[type="range"]::-moz-range-thumb {
     border: 1px solid black;
     height: 18px;
     width: 10px;
