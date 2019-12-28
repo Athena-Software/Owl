@@ -311,9 +311,9 @@ export default {
 			focus()
 		}
 		if (this.unlockedState.sitePermission) {
-			this.generalMessages.success = "You have previously granted Tusk permission to fill passwords on " + this.unlockedState.origin
+			this.generalMessages.success = "You have previously granted Owl permission to fill passwords on " + this.unlockedState.origin
 		} else {
-			this.generalMessages.warn = "This may be a new site to Tusk. Before filling in a password, double check that this is the correct site."
+			this.generalMessages.warn = "This may be a new site to Owl. Before filling in a password, double check that this is the correct site."
 		}
 		//set knowlege from the URL
 		this.databaseFileName = decodeURIComponent(this.$router.getRoute().title)
@@ -342,7 +342,7 @@ export default {
 
 			<div class="unlockLogo stack-item">
 				<img src="assets/icons/exported/128x128.svg">
-				<span>KeePass Tusk</span>
+				<span>Owl</span>
 			</div>
 
 			<form v-on:submit="clickUnlock">

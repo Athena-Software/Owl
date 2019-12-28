@@ -21,7 +21,7 @@ export default {
 
 			<a @click="$router.route('/manage/keyfiles')" class="waves-effect waves-light btn">2. Keyfile Setup (optional)</a>
 
-			<p>That's it! Owl will automatically discover any Keepass databases that your have in your cloud storage, and allow you to switch between databases from the browser popup.</p>
+			<p>That's it! Owl will automatically discover any KeePass 2.x databases that your have in your cloud storage, and allow you to switch between databases from the browser popup.</p>
 
 			<p>If you are a new KeePass 2.x user, you will be prompted to create a new database from the popup window after you enable a cloud storage provider. Most people keep all their passwords in a single database, so you will only need to do this once.</p>
 		</div>

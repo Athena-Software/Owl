@@ -11,7 +11,7 @@ function Settings(secureCache) {
 
 	// upgrade old settings.  Called on install.
 	exports.upgrade = function () {
-		// Patch https://subdavis.com/blog/jekyll/update/2017/01/02/ckp-security-flaw.html
+		// Patch for CKP - Otherwise master password is stored unencrypted in Chrome local storage indefinitely.
 		exports.getSetDatabaseUsages().then(usages => {
 			let keys = Object.keys(usages)
 			keys.forEach(k => {

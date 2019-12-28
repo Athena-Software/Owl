@@ -56,7 +56,7 @@ function Links() {
 
 	function openHomepage() {
 		chrome.tabs.create({
-			url: "https://subdavis.com/Tusk"
+			url: "https://soeren.codes/Owl"
 		})
 	}
 
