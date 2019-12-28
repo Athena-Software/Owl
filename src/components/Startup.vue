@@ -58,12 +58,12 @@ export default {
 			<div class="box-bar plain">
 				<div class="unlockLogo stack-item">
 					<img src="assets/icons/exported/128x128.svg">
-					<span>KeePass Tusk</span>
+					<span>Owl</span>
 				</div>
-				<p>Tusk is an extension that uses your existing KeePass database files to autofill passwords on websites. In order to continue, you must add your KeePass database file(s).</p>
+				<p>Owl is an extension that uses your existing KeePass 2.x database files to autofill passwords on websites. In order to continue, you must add your KeePass database file(s).</p>
 			</div>
 			<div class="stack-item selectable">
-				<button class="action-button selectable" v-on:click="links.openOptions">Add a KeePass database file</button>
+				<button class="action-button selectable" v-on:click="links.openOptions">Add a KeePass 2.x database file</button>
 			</div>
 			<div class="box-bar plain">
 				<p>You can return here when you've enabled one of the database file providers.</p>

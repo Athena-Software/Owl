@@ -1,8 +1,8 @@
 {
-  "name": "Tusk",
-  "description": "A modern keepass extension",
-  "version": "2.0.0",
-  "author": "Brandon Davis <brandon@subdavis.com>",
+  "name": "Owl",
+  "description": "A browser integration for KeePass 2.x databases",
+  "version": "2.5.0",
+  "author": "Søren Johanson <contact@soeren.codes>",
   "license": "MIT",
   "private": true,
   "scripts": {

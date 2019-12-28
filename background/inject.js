@@ -2,7 +2,7 @@ import { isVisible, parseUrl } from '$lib/utils.js'
 /* 
 Inject script
 
-- Invoked when Tusk popup 'autofill' action is selected.
+- Invoked when Owl popup 'autofill' action is selected.
 - Background will attempt to inject this script into the page, and the script will listen for a user/pass combo from background.
 */
 chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {

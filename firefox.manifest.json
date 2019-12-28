@@ -1,10 +1,10 @@
 {
-	"name": "KeePass Tusk - Password Access and Autofill",
-	"short_name": "KeePass Tusk",
-	"version": "2018.11.28",
+	"name": "Owl - Password Access and Autofill for KeePass 2.x",
+	"short_name": "Owl",
+	"version": "2019.12.28",
 	"manifest_version": 2,
 	"minimum_chrome_version": "48",
-	"description": "Readonly KeePass password database integration for Firefox",
+	"description": "Readonly KeePass 2.x password database integration for Firefox",
 	"icons": {
 		"16": "/assets/icons/exported/16x16.png",
 		"48": "/assets/icons/exported/48x48.png"
@@ -18,7 +18,7 @@
 	"browser_action": {
 		"default_icon": "assets/icons/exported/38x38.png",
 		"default_popup": "popup.html",
-    "default_title": "KeePass Tusk"
+    "default_title": "Owl"
 	},
 	"options_ui": {
 		"page": "options.html",
@@ -27,7 +27,7 @@
 	},
 	"applications": {
 	  "gecko": {
-	    "id": "brandon@subdavis.com",
+	    "id": "contact@soeren.codes",
 	    "strict_min_version": "57.0"
 	  }
 	},

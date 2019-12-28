@@ -55,7 +55,7 @@ function Background(protectedMemory, settings, notifications) {
 			chrome.notifications.create({
 				'type': 'basic',
 				'iconUrl': '/assets/icons/exported/48x48.png',
-				'title': 'Tusk',
+				'title': 'Owl',
 				'message': message.text
 			}, function(notificationId) {
 				setTimeout(() => chrome.notifications.clear(notificationId), expire)

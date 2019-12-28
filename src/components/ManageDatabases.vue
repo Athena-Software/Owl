@@ -60,18 +60,18 @@ export default {
 <template>
 	<div>
 		<div class="box-bar about roomy">
-			<p>Tusk
+			<p>Owl
 				<b>requires</b> that you enable at least one of these cloud storage providers to sync your keepass database with. Once the files appear below, they will be available to unlock within the popup window.</p>
 
 			<a class="waves-effect waves-light btn" @click="tabRouter.route('/help/me/choose')">Help me choose</a>
 			<a class="waves-effect waves-light btn" @click="tabRouter.route('/new/user')">I haven't made a keepass database yet.</a>
 
 			<p id="/help/me/choose" v-show="show.help.visible">If you're unsure which to pick, the developers recommend
-				<b>Dropbox</b>. It is easy to use and widely supported by other Keepass apps, such as
+				<b>Dropbox</b>. It is easy to use and widely supported by other KeePass 2.x apps, such as
 				<a href="https://play.google.com/store/apps/details?id=keepass2android.keepass2android&hl=en">Keepass2Android</a> for iOS or
 				<a href="https://itunes.apple.com/us/app/keepass-touch/id966759076?mt=8">KeepassTouch</a>. Simply create a Dropbox account, upload your keepass database, and enable the dropbox provider below.</p>
 
-			<p id="/new/user" v-show="show.newUser.visible">If you've never used keepass before, you will need to create a new keepass database before enabling the providers below. You can do this by downloading a desktop keepass application like
+			<p id="/new/user" v-show="show.newUser.visible">If you've never used KeePass 2.x before, you will need to create a new KeePass 2.x database before enabling the providers below. You can do this by downloading a desktop KeePass 2.x application like
 				<a href="https://keepassxc.org/">KeePassXC</a> or generate one quickly in your browser with
 				<a href="https://app.keeweb.info/">KeeWeb</a>. Store the keepass database file in a cloud provider like
 				<a href="https://dropbox.com">Dropbox</a> or
