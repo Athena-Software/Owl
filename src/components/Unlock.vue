@@ -341,7 +341,7 @@ export default {
 		<div id="masterPasswordGroup" v-if="!busy && !isUnlocked()">
 
 			<div class="unlockLogo stack-item">
-				<img src="assets/icons/exported/128x128.svg">
+				<img src="assets/icons/exported/owl_128x116.png" width="128" height="116">
 				<span>Owl</span>
 			</div>
 
