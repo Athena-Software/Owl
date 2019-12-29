@@ -1,7 +1,8 @@
 # Owl
 > A modern, clean keepass browser extension built with Vue.js and kdbxweb.  Rebooted from perfectapi/CKP and subdavis/Tusk.
 
-![Owl](https://user-images.githubusercontent.com/5760400/71549898-96971000-29c5-11ea-8b29-3bfae14236fd.png "Owl Logo")
+![Owl](https://user-images.githubusercontent.com/5760400/71561102-5f326d00-2a72-11ea-8ee2-b2e99ecc8cdc.png "Owl Logo")
+
 
 ## Installation
 
