@@ -57,7 +57,7 @@ export default {
 		<div v-else>
 			<div class="box-bar plain">
 				<div class="unlockLogo stack-item">
-					<img src="assets/icons/exported/owl_128x116.png" width="128" height="116">
+					<img src="assets/icons/exported/owl_128x159.png" width="128" height="116">
 					<span>Owl</span>
 				</div>
 				<p>Owl is an extension that uses your existing KeePass 2.x database files to autofill passwords on websites. In order to continue, you must add your KeePass database file(s).</p>

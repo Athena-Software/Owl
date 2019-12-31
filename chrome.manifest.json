@@ -6,8 +6,8 @@
 	"minimum_chrome_version": "48",
 	"description": "Readonly KeePass 2.x password database integration for Chrome™",
 	"icons": {
-		"16": "/assets/icons/exported/owl_16x15.png",
-		"48": "/assets/icons/exported/owl_48x44.png"
+		"16": "/assets/icons/exported/owl_16x20.png",
+		"48": "/assets/icons/exported/owl_48x70.png"
 	},
 	"oauth2": {
 		"client_id": "876467817034-al13p9m2bphgregs0rij76n1tumakcqr.apps.googleusercontent.com",
@@ -24,7 +24,7 @@
 	},
 	"incognito": "split",
 	"browser_action": {
-		"default_icon": "/assets/icons/exported/owl_38x35.png",
+		"default_icon": "/assets/icons/exported/owl_38x43.png",
 		"default_popup": "popup.html",
     	"default_title": "Owl"
 	},

@@ -9,7 +9,7 @@ export default {
 		<div class="box-bar roomy">
 
 			<div class="unlockLogo stack-item optionsheader">
-				<img src="assets/icons/exported/owl_128x116.png" width="128" height="116">
+				<img src="assets/icons/exported/owl_128x159.png" width="128" height="116">
 				<span>Getting Started with Owl</span>
 			</div>
 
