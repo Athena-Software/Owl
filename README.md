@@ -3,7 +3,6 @@
 
 ![Owl](https://user-images.githubusercontent.com/5760400/71561102-5f326d00-2a72-11ea-8ee2-b2e99ecc8cdc.png "Owl Logo")
 
-
 ## Installation
 
 **Firefox:** @TODO: Add store link
