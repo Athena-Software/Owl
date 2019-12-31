@@ -35,7 +35,7 @@ function SampleDatabaseFileManager() {
 	}
 
 	function listDatabases() {
-		return getActive().then(function(flag) {
+		return getActive().then(function (flag) {
 			if (flag) {
 				return [{
 					title: 'Sample.kdbx - password is 123'
@@ -57,9 +57,9 @@ function SampleDatabaseFileManager() {
 	function getChosenDatabaseFile(dbInfo) {
 		return axios({
 			method: 'GET',
-			url: chrome.extension.getURL('/assets/Sample123.kdbx'),
+			url: chrome.extension.getURL('/assets/other/Sample123.kdbx'),
 			responseType: 'arraybuffer'
-		}).then(function(response) {
+		}).then(function (response) {
 			return response.data;
 		});
 	}
@@ -74,7 +74,7 @@ function SampleDatabaseFileManager() {
 	}
 
 	function getActive() {
-		return chromePromise.storage.local.get('useSampleDatabase').then(function(results) {
+		return chromePromise.storage.local.get('useSampleDatabase').then(function (results) {
 			return !!results.useSampleDatabase;
 		});
 	}

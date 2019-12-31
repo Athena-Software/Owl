@@ -1,12 +1,13 @@
 var path = require("path");
 var webpack = require("webpack");
+var UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
     context: process.cwd(),
     resolve: {
         extensions: ['.js', '.jsx', '.json', '.less', '.css'],
         modules: [__dirname, 'node_modules']
-     },
+    },
     entry: {
         library: [
             "axios",
@@ -17,9 +18,9 @@ module.exports = {
             "kdbxweb",
             "materialize-css",
             "pako",
-            "vue",
+            "vue/dist/vue.runtime.esm.js",
             "vue-simple-spinner",
-            "webdav-client",
+            "webdav",
             "xmldom",
         ]
     },
@@ -33,6 +34,11 @@ module.exports = {
             path: path.join(__dirname, "dll", "[name]-manifest.json"),
             name: "[name]",
         }),
-        new webpack.optimize.UglifyJsPlugin()
+        new UglifyJSPlugin({}),
+        new webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: '"production"'
+            }
+        })
     ]
 };

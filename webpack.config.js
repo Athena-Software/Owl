@@ -56,12 +56,6 @@ module.exports = {
             loader: 'babel-loader',
             include: [ path.join(__dirname, './src'), path.join(__dirname, './lib'), path.join(__dirname, './services'), path.join(__dirname, './background') ],
         }, {
-            test: /\.wasm$/,
-            loader: 'file-loader',
-            options: {
-                name: '[name].[ext]'
-            }
-        }, {
             test: /\.css$/,
             use: ExtractTextPlugin.extract({
                 fallback: "style-loader",
@@ -74,7 +68,7 @@ module.exports = {
     },
     resolve: {
         alias: {
-            'vue$': 'vue/dist/vue.esm.js',
+            'vue$': 'vue/dist/vue.runtime.esm.js',
             '$lib': path.resolve(__dirname, 'lib/'),
             '$services': path.resolve(__dirname, 'services/'),
             '$bwr': path.resolve(__dirname, 'bower_components/'),
@@ -101,8 +95,9 @@ module.exports = {
             context: __dirname,
             manifest: require('./dll/library-manifest.json')
         }),
-    ],
-    devtool: undefined
+		],
+    devtool: undefined,
+    node: { fs: 'empty' },
 }
 
 if (process.env.NODE_ENV === 'production') {
@@ -114,9 +109,9 @@ if (process.env.NODE_ENV === 'production') {
                 NODE_ENV: '"production"'
             }
         }),
-        // new UglifyJSPlugin({
-        //     sourceMap: true
-        // }),
+        new UglifyJSPlugin({
+            sourceMap: true
+        }),
         new webpack.LoaderOptionsPlugin({
             minimize: true
         })

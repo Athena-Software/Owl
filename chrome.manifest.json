@@ -1,13 +1,13 @@
 {
-	"name": "KeePass Tusk - Password Access and Autofill",
-	"short_name": "KeePass Tusk",
-	"version": "2018.2.12",
+	"name": "Owl - Password Access and Autofill for KeePass 2.x",
+	"short_name": "Owl",
+	"version": "2019-12-28",
 	"manifest_version": 2,
 	"minimum_chrome_version": "48",
-	"description": "Readonly KeePass password database integration for Chrome™",
+	"description": "Readonly KeePass 2.x password database integration for Chrome™",
 	"icons": {
-		"16": "assets/icons/logo_16.png",
-		"48": "assets/icons/logo_48.png"
+		"16": "/assets/icons/exported/owl_16x20.png",
+		"48": "/assets/icons/exported/owl_48x70.png"
 	},
 	"oauth2": {
 		"client_id": "876467817034-al13p9m2bphgregs0rij76n1tumakcqr.apps.googleusercontent.com",
@@ -24,9 +24,9 @@
 	},
 	"incognito": "split",
 	"browser_action": {
-		"default_icon": "assets/icons/logo_38.png",
+		"default_icon": "/assets/icons/exported/owl_38x43.png",
 		"default_popup": "popup.html",
-    	"default_title": "KeePass Tusk"
+    	"default_title": "Owl"
 	},
 	"options_ui": {
 		"page": "options.html",
@@ -41,8 +41,7 @@
 				"chromeos": "Ctrl+Shift+Space",
 				"linux": "Ctrl+Shift+Space",
 				"default": "Ctrl+Shift+Space"
-			},
-			"global": true
+			}
 		}
 	},
 	"permissions": [

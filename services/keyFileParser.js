@@ -21,10 +21,10 @@ function KeyFileParser() {
 		}
 	}
 
-	exports.getKeyFromFile = function(keyFileBytes) {
+	exports.getKeyFromFile = function (keyFileBytes) {
 		var arr = new Uint8Array(keyFileBytes);
 		if (arr.byteLength == 0) {
-			return Promise.reject(new Error('key file has zero bytes'));
+			return Promise.reject(new Error('The key file cannot be empty'));
 		} else if (arr.byteLength == 32) {
 			//file content is the key
 			return Promise.resolve(arr);

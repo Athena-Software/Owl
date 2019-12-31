@@ -1,8 +1,8 @@
 {
-  "name": "Tusk",
-  "description": "A modern keepass extension",
-  "version": "2.0.0",
-  "author": "Brandon Davis <brandon@subdavis.com>",
+  "name": "Owl",
+  "description": "A browser integration for KeePass 2.x databases",
+  "version": "2.5.0",
+  "author": "Søren Johanson <contact@soeren.codes>",
   "license": "MIT",
   "private": true,
   "scripts": {
@@ -21,13 +21,13 @@
     "case": "^1.5.4",
     "font-awesome": "^4.7.0",
     "json-formatter-js": "^2.2.0",
-    "kdbxweb": "^1.1.0",
+    "kdbxweb": "^1.2.4",
     "keeweb": "https://github.com/keeweb/keeweb",
     "materialize-css": "^0.100.2",
     "pako": "^1.0.6",
     "vue": "^2.4.4",
     "vue-simple-spinner": "^1.2.8",
-    "webdav-client": "subdavis/webdav-client#master",
+    "webdav": "https://github.com/subdavis/webdav-client#fetchfix",
     "xmldom": "^0.1.27"
   },
   "browserslist": [
@@ -48,7 +48,7 @@
     "ignore-loader": "^0.1.2",
     "mocha": "^4.1.0",
     "mocha-loader": "^1.1.2",
-    "node-sass": "^4.5.3",
+    "node-sass": "^4.13.0",
     "sass-loader": "^6.0.6",
     "should": "^13.2.0",
     "sinon": "^4.1.4",
@@ -57,9 +57,8 @@
     "url-loader": "^0.6.2",
     "vue-loader": "11.1.4",
     "vue-template-compiler": "^2.4.4",
-    "wasm-loader": "^1.1.0",
     "webpack": "^3.6.0",
-    "webpack-dev-server": "^2.9.1",
+    "webpack-dev-server": "^3.1.11",
     "webpack-merge": "^4.1.1",
     "webpack-stream": "^4.0.0"
   }

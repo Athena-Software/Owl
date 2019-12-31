@@ -1,84 +1,49 @@
-# Tusk
-> A modern, clean keepass browser extension built with Vue.js and kdbxweb.  Rebooted from perfectapi/CKP
+# Owl
+> A modern, clean keepass browser extension built with Vue.js and kdbxweb.  Rebooted from perfectapi/CKP and subdavis/Tusk.
 
-![Tusk](https://github.com/subdavis/Tusk/blob/develop/assets/icons/logo_256.png "Tusk Logo")
+![Owl](https://user-images.githubusercontent.com/5760400/71561102-5f326d00-2a72-11ea-8ee2-b2e99ecc8cdc.png "Owl Logo")
 
 ## Installation
 
-**Firefox:** https://addons.mozilla.org/en-GB/firefox/addon/keepass-tusk/
+**Firefox:** @TODO: Add store link
 
-**Chrome:** https://chrome.google.com/webstore/detail/fmhmiaejopepamlcjkncpgpdjichnecm
-
-#### User Guide + Other Docs
-
-* Wiki https://github.com/subdavis/Tusk/wiki
-* Website https://subdavis.com/Tusk
-
-## Tusk Custom Fields
-
-The following custom fields in a keepass entry are supported and affect the behavior of Tusk.
-
-* `TUSK_URLS`: a comma separated list of URLs or hostnames to which the entry should always match.  For example, active directory login credentials that must match several sites.  e.g. `my.login.domain.com,https://github.com,foobar.net`
+**Chrome:** @TODO: Add store link
 
 ## Build Setup
 
-Tusk requires:
+Owl requires:
 * `node`
 * `npm`
-* `gulp`
 * `yarn`
 
 ```bash
 # install dependencies
 yarn install
 
-# Build static DLL resources
+# build static DLL resources (optional)
 yarn build-dll
-
-# static reload with file watch
-yarn watch
 
 # build for production with minification
 yarn build
 
-# run the packer script targeted for 'chrome' or 'firefox' after build
+# run the packer script targeted for 'chrome' and 'firefox' after build.
+# this step generates the zip archives submitted to Chrome/Firefox addon marketplaces.
 yarn bundle
 
-# build the tests
-yarn build-tests
-
 # static reload with file watch for tests
-yarn watch-tests
+yarn dev-tests
 ```
 
 For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
 ## Running tests
 
-To run tests, first build them with `yarn build-tests` or `yarn watch-tests` then open `tests/test.html` in a browser.s
+To run tests, first build them with `yarn build-tests` or `yarn watch-tests` then open `tests/test.html` in a browser.
 
 ## Browser Permissions
 
-> Tusk requires cross-origin permissions in order to inject credentials and query the storage backends on the user's behalf.
+> Owl requires cross-origin permissions in order to inject credentials and query the storage backends on the user's behalf.
 
-In chrome, these permissions requests are __always__ promted to the user upon first use.
+In Chrome, these permissions requests are __always__ prompted to the user upon first use.
 
 Because of Firefox's implementation of `browser.permissions`, it was necessary to request all permissions at install time to avoid code rot.  A deeper explanation of the firefox permissions can be found [on stackoverflow](https://stackoverflow.com/questions/47723297/firefox-extension-api-permissions-request-may-only-be-called-from-a-user-input)
-
-## FAQ
-
-> Why is it called Tusk?!
-
-I originally wanted to call it *Elephant*, as in *An elephant never forgets.*  I tried this name on a couple of friends and they were unimpressed. I wanted to find a name that was more concise but keep the elephant imagery.  Ergo, tusk.
-
-> What happened to CKPX?
-
-This is it! CKPX has been rebranded as Tusk to mark its Firefox release.  The C in CKPX stood for 'Chrome'.
-
-> Can I donate money?
-
-I don't want your money.  Take whatever you would have given me and find a local charity -- a food bank, a women's shelter or an animal shelter, for example.  Enjoy your free software.
-
-> So how can I support Tusk?
-
-You found it!  CKPX has been rebranded as Tusk to mark its Firefox release.  The C in CKPX stood for 'Chrome'.

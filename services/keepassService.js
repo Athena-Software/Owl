@@ -13,44 +13,47 @@ import { parseUrl, getValidTokens } from '$lib/utils.js'
 function KeepassService(keepassHeader, settings, passwordFileStoreRegistry, keepassReference) {
 	var my = {};
 
-	var littleEndian = (function() {
+	var littleEndian = (function () {
 		var buffer = new ArrayBuffer(2);
 		new DataView(buffer).setInt16(0, 256, true);
 		return new Int16Array(buffer)[0] === 256;
 	})();
-	
+
 	/** 
 	 * return Promise(arrayBufer)
 	 */
-	my.getChosenDatabaseFile = function() {
+	my.getChosenDatabaseFile = function () {
 		return passwordFileStoreRegistry.getChosenDatabaseFile(settings)
 	}
 
-	my.getMasterKey = function(bufferPromise, masterPassword, keyFileInfo) {
+	my.getMasterKey = function (bufferPromise, masterPassword, keyFileInfo) {
 		/**
 		 * Validate that one of the following is true:
 		 * (password isn't empty OR keyfile isn't empty)
 		 * ELSE
 		 * (assume password is the empty string)
 		 */
+		let protectedMasterPassword;
 		if (masterPassword === undefined && keyFileInfo === undefined) {
 			// Neither keyfile nor password provided.  Assume empty string password.
-			masterPassword = "";
+			protectedMasterPassword = kdbxweb.ProtectedValue.fromString("");
 		} else if (masterPassword === "" && keyFileInfo !== undefined) {
 			// Keyfile but empty password provided.  Assume password is unused.
 			// This extension does not support the combo empty string + keyfile.
-			masterPassword = undefined;
+			protectedMasterPassword = null;
+		} else {
+			protectedMasterPassword = kdbxweb.ProtectedValue.fromString(masterPassword)
 		}
 		var fileKey = keyFileInfo ? Base64.decode(keyFileInfo.encodedKey) : null;
-		return bufferPromise.then(function(buf) {
+		return bufferPromise.then(function (buf) {
 			var h = keepassHeader.readHeader(buf);
-			return getKey(h.kdbx, masterPassword, fileKey);
+			return getKey(h.kdbx, protectedMasterPassword, fileKey);
 		});
 	}
 
-	my.getDecryptedData = function(bufferPromise, masterKey) {
+	my.getDecryptedData = function (bufferPromise, masterKey) {
 		var majorVersion;
-		return bufferPromise.then(function(buf) {
+		return bufferPromise.then(function (buf) {
 			var h = keepassHeader.readHeader(buf);
 			if (!h) throw new Error('Failed to read file header');
 
@@ -66,7 +69,7 @@ function KeepassService(keepassHeader, settings, passwordFileStoreRegistry, keep
 			} else { // KDB - we don't support this anymore
 				throw "Unsupported Database Version";
 			}
-		}).then(function(entries) {
+		}).then(function (entries) {
 			return {
 				entries: entries,
 				version: majorVersion
@@ -75,30 +78,33 @@ function KeepassService(keepassHeader, settings, passwordFileStoreRegistry, keep
 	}
 
 	my.rankEntries = (entries, siteUrl, title, siteTokens) => {
-		entries.forEach(function(entry) {
+		entries.forEach(function (entry) {
 			//apply a ranking algorithm to find the best matches
-			var entryHostnames = [ parseUrl(entry.url).hostname || "" ]
-			
-			if (entry.keys.indexOf('tuskUrls') >= 0){
+			var entryOrigins = [parseUrl(entry.url)]
+
+			if (entry.keys.indexOf('tuskUrls') >= 0) {
 				let others = entry.tuskUrls
 					.split(',')
 					.map(val => {
-						return parseUrl(val).hostname
+						return parseUrl(val)
 					})
-				entryHostnames = entryHostnames.concat(others)
+				entryOrigins = entryOrigins.concat(others)
 			}
-
-			if (entryHostnames.length && entryHostnames.some((host => host == siteUrl.hostname)))
-				entry.matchRank = 100 //exact url match
+			if (entryOrigins.length && entryOrigins.some(a => a && (a.origin == siteUrl.origin)))
+				entry.matchRank = 100 // perfect match
+			else if (entryOrigins.length && entryOrigins.some(a => a && (a.host == siteUrl.host)))
+				entry.matchRank = 10  // possible match
+			else if (entryOrigins.length && entryOrigins.some(a => a && (a.hostname == siteUrl.hostname)))
+				entry.matchRank = -100 // phishing?
 			else
-				entry.matchRank = 0
+				entry.matchRank = 0 // None
 
 			entry.matchRank += (entry.title && title && entry.title.toLowerCase() == title.toLowerCase()) ? 1 : 0
 			entry.matchRank += (entry.title && entry.title.toLowerCase() === siteUrl.hostname.toLowerCase()) ? 1 : 0
 			entry.matchRank += (entry.url && siteUrl.hostname.indexOf(entry.url.toLowerCase()) > -1) ? 0.9 : 0
 			entry.matchRank += (entry.title && siteUrl.hostname.indexOf(entry.title.toLowerCase()) > -1) ? 0.9 : 0
 
-			var entryTokens = getValidTokens(entryHostnames.join('.') + "." + entry.title);
+			var entryTokens = getValidTokens(entryOrigins.join('.') + "." + entry.title);
 			for (var i = 0; i < entryTokens.length; i++) {
 				var token1 = entryTokens[i]
 				for (var j = 0; j < siteTokens.length; j++) {
@@ -106,14 +112,14 @@ function KeepassService(keepassHeader, settings, passwordFileStoreRegistry, keep
 					if (token1 == token2) {
 						entry.matchRank += 0.2;
 					}
-					
+
 				}
 			}
 		})
-	} // end rankEntries
+	}
 
-	function getKey(isKdbx, masterPassword, fileKey) {
-		var creds = new kdbxweb.Credentials(kdbxweb.ProtectedValue.fromString(masterPassword), fileKey);
+	function getKey(isKdbx, protectedMasterPassword, fileKey) {
+		var creds = new kdbxweb.Credentials(protectedMasterPassword, fileKey);
 		return creds.ready.then(() => {
 			return kdbxCredentialsToJson(creds);
 		});
@@ -122,12 +128,19 @@ function KeepassService(keepassHeader, settings, passwordFileStoreRegistry, keep
 	function processReferences(entries, majorVersion) {
 		// In order to fully implement references, majorVersion will need to be known
 		// as there are more capabilities for references in v2+
-		entries.forEach(function(entry) {
+		entries.forEach(function (entry) {
 			if (entry.keys) {
-				entry.keys.forEach(function(key) {
+				entry.keys.forEach(function (key) {
 					var fieldRefs = keepassReference.hasReferences(entry[key]);
 					if (fieldRefs) {
-						entry[key] = keepassReference.processAllReferences(majorVersion, entry[key], entry, entries)
+						let value = keepassReference.processAllReferences(majorVersion, entry[key], entry, entries);
+						if (['password', 'otp'].indexOf(key) >= 0) {
+							let newProtectedVal = kdbxweb.ProtectedValue.fromString(value);
+							entry.protectedData[Case.camel(key)] = protectedValueToJSON(newProtectedVal);
+							delete entry[key];
+						} else {
+							entry[key] = value;
+						}
 					}
 				});
 			}
@@ -154,7 +167,7 @@ function KeepassService(keepassHeader, settings, passwordFileStoreRegistry, keep
 				};
 				// Entry properties defined by the parent group
 				entry.searchable = true;
-				if (group.enableSearching == 'false') //verify
+				if (group.enableSearching === false)
 					entry.searchable = false;
 				entry.groupIconId = group.icon;
 				entry.keys.push("groupName");
@@ -180,7 +193,7 @@ function KeepassService(keepassHeader, settings, passwordFileStoreRegistry, keep
 					var field_keys = Object.keys(db_entry.fields);
 					for (let k = 0; k < field_keys.length; k++) {
 						var field = field_keys[k];
-						if (typeof db_entry.fields[field] == "object") {
+						if (typeof db_entry.fields[field] === 'object') {
 							// type = object ? protected value
 							entry.protectedData[Case.camel(field)] = protectedValueToJSON(db_entry.fields[field]);
 						} else {
