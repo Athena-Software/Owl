@@ -42,10 +42,10 @@ export default {
 					this.busy = false
 				})
 			}).catch(err => {
-				console.error("Error while connecting to database backend for", this.providerManager.title)
+				console.error("OWL ERROR - Error while connecting to database backend for", this.providerManager.title)
 				this.messages.error = err.toString()
 				this.databases = []
-				console.error(err)
+				console.error("OWL ERROR - " + err)
 				this.busy = false
 			})
 		},
@@ -71,7 +71,7 @@ export default {
 				}
 			} else {
 				// wait for state to settle...
-				console.error("Wait for toggle state to settle before changing enable/disable")
+				console.error("OWL ERROR - Wait for toggle state to settle before changing enable/disable.")
 			}
 		}
 	},

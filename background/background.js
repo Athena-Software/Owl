@@ -138,7 +138,7 @@ function Background(protectedMemory, settings, notifications) {
 	});
 
 	function forgetStuff() {
-		console.log("ForgetStuff", new Date())
+		//console.log("ForgetStuff", new Date()) // Don't spam console.
 		protectedMemory.clearData('secureCache.entries'); // ALWAYS clear entries.
 		settings.getAllForgetTimes().then(function(allTimes) {
 			var now = Date.now();
@@ -165,7 +165,7 @@ function Background(protectedMemory, settings, notifications) {
 									});
 								})
 							} else {
-								console.error("I don't know what to do with key", key)
+								console.error("OWL - I don't know what to do with this key: ", key)
 							}
 					}
 				}

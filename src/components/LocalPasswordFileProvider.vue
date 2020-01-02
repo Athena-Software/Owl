@@ -63,7 +63,7 @@ export default {
 				reader.readAsArrayBuffer(fp)
 				reader.onload = (e) => {
 					if (fp.name.indexOf('.kdbx') < 0 || fp.size < 70) {
-						this.messages.error += fp.name + " is not a valid KeePass v2+ file. "
+						this.messages.error += fp.name + " is not a valid KeePass 2.x file. "
 						return;
 					}
 
@@ -117,7 +117,7 @@ export default {
 		<div v-if="loggedIn">
 			<div class="warn pill">
 				<p>
-					Tusk
+					Owl
 					<b>cannot</b> keep your local database file up to date.
 					<b>If you change it, you'll have to import it into Tusk again.</b>
 				</p>

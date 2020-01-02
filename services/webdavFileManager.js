@@ -44,10 +44,10 @@ function WebdavFileManager(settings) {
 		getDatabaseChoiceData: getDatabaseChoiceData,
 		getChosenDatabaseFile: getChosenDatabaseFile,
 		supportedFeatures: ['incognito', 'listDatabases'],
-		title: 'WebDAV (beta)',
+		title: 'WebDAV',
 		icon: 'icon-folder',
-		chooseTitle: 'WebDAV (beta)',
-		chooseDescription: 'Choose a database from any WebDAV file server.  Tusk will always keep your database in sync with the server and automatically pull new versions.  WARNING: If you require username/password to use webdav, Tusk will store them unencrypted on disk.',
+		chooseTitle: 'WebDAV',
+		chooseDescription: 'Choose a database from any WebDAV file server. Owl will always keep your database in sync with the server and automatically pull new versions. WARNING: If you require username/password to use webdav, Owl will store them unencrypted on disk.',
 		login: enable,
 		logout: disable,
 		isLoggedIn: isEnabled,
@@ -108,7 +108,7 @@ function WebdavFileManager(settings) {
 	async function searchServer(serverId) {
 		let serverInfo = await getServer(serverId)
 		if (serverInfo === null) {
-			console.error("serverInfo not found");
+			console.error("OWL ERROR - serverInfo not found");
 			return
 		}
 		let client = createClient(serverInfo.url, serverInfo.username, serverInfo.password)
@@ -171,7 +171,7 @@ function WebdavFileManager(settings) {
 	function getChosenDatabaseFile(dbInfo) {
 		return getServer(dbInfo.serverId).then(serverInfo => {
 			if (serverInfo === null)
-				throw 'Database no longer exists'
+				throw 'Database no longer exists!'
 			let client = createClient(serverInfo.url, serverInfo.username, serverInfo.password)
 			createClient.setFetchMethod(window.fetch)
 			return client.getFileContents(dbInfo.path, { credentials: 'omit' })

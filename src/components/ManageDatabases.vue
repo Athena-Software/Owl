@@ -73,7 +73,7 @@ export default {
 
 			<p id="/new/user" v-show="show.newUser.visible">If you've never used KeePass 2.x before, you will need to create a new KeePass 2.x database before enabling the providers below. You can do this by downloading a desktop KeePass 2.x application like
 				<a href="https://keepassxc.org/">KeePassXC</a> or generate one quickly in your browser with
-				<a href="https://app.keeweb.info/">KeeWeb</a>. Store the keepass database file in a cloud provider like
+				<a href="https://app.keeweb.info/">KeeWeb</a>. Store the KeePass 2.x database file in a cloud provider like
 				<a href="https://dropbox.com">Dropbox</a> or
 				<a href="http://drive.google.com">Google Drive</a> and come back here when you're done.</p>
 		</div>

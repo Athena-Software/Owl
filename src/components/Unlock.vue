@@ -235,14 +235,14 @@ export default {
 					this.masterPassword = ""
 				}).catch(err => {
 					let errmsg = err.message || "Incorrect password or keyfile"
-					console.error(errmsg)
+					console.error("OWL ERROR - " + errmsg)
 					this.generalMessages['error'] = errmsg
 					this.busy = false
 				})
 			}).catch(err => {
 				this.settings.handleProviderError(err)
 				let errmsg = err.message || "Incorrect password or keyfile"
-				console.error(errmsg)
+				console.error("OWL ERROR - " + errmsg)
 				this.generalMessages['error'] = errmsg
 				this.busy = false
 			})
@@ -301,7 +301,7 @@ export default {
 					try_autounlock()
 				}
 			} catch (err) {
-				console.error(err);
+				console.error("OWL ERROR - " + err);
 				//this is fine - it just means the cache expired.  Clear the cache to be sure.
 				this.secureCache.clear('secureCache.entries')
 				try_autounlock()
