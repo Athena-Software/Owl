@@ -63,7 +63,7 @@ export default {
 				reader.readAsArrayBuffer(fp)
 				reader.onload = (e) => {
 					if (fp.name.indexOf('.kdbx') < 0 || fp.size < 70) {
-						this.messages.error += fp.name + " is not a valid KeePass 2.x file. "
+						this.messages.error += fp.name + " is not a valid KeePass 2.x file."
 						return;
 					}
 
