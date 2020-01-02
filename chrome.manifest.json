@@ -59,13 +59,13 @@
 	],
 	"static_data": {
 		"dropbox" : {
-			"client_id": "lau0eigo4cfthqz"
+			"client_id": "exkvwmhrrromtzh"
 		},
 		"onedrive" : {
-			"client_id" : "f4c55645-3f43-4f8e-a7d2-ec167b416f1d"
+			"client_id" : "352beab6-53e8-4187-9b93-c5915dd268fe"
 		},
 		"gdrive": {
-			"client_id": "876467817034-rlas0hnb5jc9dt1qmp11l6g4724ktoqn.apps.googleusercontent.com"
+			"client_id": "212480071870-s2opocg9q728787qph4eogsko25gsnt9.apps.googleusercontent.com"
 		},
 		"pcloud": {
 			"client_id": "1NklWhTApYR"

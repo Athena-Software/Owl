@@ -176,18 +176,19 @@ function OauthManager(settings, oauth) {
 
 	function auth(interactive) {
 		interactive = !!interactive;
-		console.info("Authenticating for ", oauth.accessTokenType, interactive)
+		console.info("OWL INFO - Authenticating for:", oauth.accessTokenType, interactive)
 
 		let authfunction = is_interactive => {
 			return new Promise(function (resolve, reject) {
 				chromePromise.runtime.getManifest().then(manifest => {
+
 					//random state, protects against CSRF
 					var randomState = Base64.encode(window.crypto.getRandomValues(new Uint8Array(16)));
 					var authUrl = oauth.authUrl +
 						'&client_id=' + manifest.static_data[oauth.accessTokenType].client_id +
 						'&state=' + encodeURIComponent(randomState) +
 						'&redirect_uri=' + encodeURIComponent(chrome.identity.getRedirectURL(oauth.accessTokenType));
-					console.info("Sending request for AUTH to", oauth.authUrl);
+					console.info("OWL INFO - Sending request for AUTH to:", oauth.authUrl);
 					chromePromise.identity.launchWebAuthFlow({
 						'url': authUrl,
 						'interactive': is_interactive
