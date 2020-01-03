@@ -97,7 +97,7 @@ export default {
 		setRememberPeriod(time_int) {
 			/* Args: optional time_int
 			 * if time_int is given, derive slider_int
-			 * else assume slider_int is alread set.
+			 * else assume slider_int is already set.
 			 */
 			let slider_option_index;
 			if (time_int !== undefined) {

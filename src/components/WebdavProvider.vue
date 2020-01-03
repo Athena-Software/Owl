@@ -44,7 +44,12 @@ export default {
 						this.scan(serverInfo.serverId)
 					})
 				}).catch(err => {
-					this.messages.error = err.toString()
+					// Very specific error msg, but makes it more human readable later - ref https://github.com/CER10TY/Owl/issues/11
+					if (err.toString() === "TypeError: serverListItem is undefined") {
+						this.messages.error = "Error: Server already defined"
+					} else {
+						this.messages.error = err.toString()
+					}
 				})
 			}).catch(err => {
 				this.messages.error = err.toString()

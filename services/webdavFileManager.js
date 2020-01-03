@@ -132,7 +132,7 @@ function WebdavFileManager(settings) {
 				contents.forEach(item => {
 					if (item.type === 'directory')
 						queue.push(item.filename)
-					else if (item.filename.indexOf('.kdbx') >= 1 && !foundKDBXInDir) {
+					else if (item.filename.endsWith('.kdbx') === true && !foundKDBXInDir) {
 						foundDirectories.push({
 							path: path, // the parent.
 							serverId: serverInfo.serverId
@@ -192,7 +192,7 @@ function WebdavFileManager(settings) {
 			return client.getDirectoryContents(directory, { credentials: 'omit' }).then(contents => {
 				// map from directory contents to DBInfo type.
 				return contents.filter(element => {
-					return element.filename.indexOf('.kdbx') >= 1
+					return element.filename.endsWith('.kdbx') === true
 				}).map(element => {
 					return {
 						title: element.basename,
