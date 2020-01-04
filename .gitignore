@@ -40,7 +40,13 @@ store/
 
 #packaged app
 build/
+<<<<<<< HEAD
 *.zip
+=======
+dist/
+*.zip
+*.build.js
+>>>>>>> e89bddbffa391e4ebe4dea8f4840332fc75c0d09
 
 #nodejs
 # Logs
@@ -64,6 +70,9 @@ coverage
 # node-waf configuration
 .lock-wscript
 
+# Yarn
+yarn.lock
+
 # Compiled binary addons (http://nodejs.org/api/addons.html)
 build/Release
 
@@ -77,5 +86,9 @@ npm-debug.log
 #bower components
 bower_components/
 
-yarn.lock
-.vscode
+*.sublime-workspace
+.sublime-grunt.cache
+
+*.travis.yml
+manifest.json
+demo*
