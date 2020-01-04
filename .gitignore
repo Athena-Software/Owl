@@ -76,3 +76,7 @@ npm-debug.log
 
 #bower components
 bower_components/
+
+yarn.lock
+.vscode
+
