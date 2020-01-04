@@ -6,8 +6,8 @@
   "license": "MIT",
 	"private": true,
 	"scripts": {
-		"docs:dev": "vuepress dev docs",
-		"docs:build": "vuepress build docs"
+		"docs:dev": "vuepress dev makedocs",
+		"docs:build": "vuepress build makedocs"
 	},
 	"browserslist": [
     "> 1%",

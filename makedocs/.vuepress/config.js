@@ -36,5 +36,6 @@ module.exports = {
 			}
 		]
   },
-  base: '/Owl/'
+	base: '/Owl/',
+	dest: 'docs/'
 }
