@@ -1,5 +1,5 @@
 <script>
-const OTP = require('keeweb/app/scripts/util/data/otp.js')
+const OTP = require('$lib/keeweb/otp.js')
 import { parseUrl } from '$lib/utils.js'
 import GoBack from '@/components/GoBack'
 
