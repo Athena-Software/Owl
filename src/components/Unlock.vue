@@ -97,7 +97,7 @@ export default {
 		setRememberPeriod(time_int) {
 			/* Args: optional time_int
 			 * if time_int is given, derive slider_int
-			 * else assume slider_int is alread set.
+			 * else assume slider_int is already set.
 			 */
 			let slider_option_index;
 			if (time_int !== undefined) {
@@ -235,14 +235,14 @@ export default {
 					this.masterPassword = ""
 				}).catch(err => {
 					let errmsg = err.message || "Incorrect password or keyfile"
-					console.error(errmsg)
+					console.error("OWL ERROR - " + errmsg)
 					this.generalMessages['error'] = errmsg
 					this.busy = false
 				})
 			}).catch(err => {
 				this.settings.handleProviderError(err)
 				let errmsg = err.message || "Incorrect password or keyfile"
-				console.error(errmsg)
+				console.error("OWL ERROR - " + errmsg)
 				this.generalMessages['error'] = errmsg
 				this.busy = false
 			})
@@ -301,7 +301,7 @@ export default {
 					try_autounlock()
 				}
 			} catch (err) {
-				console.error(err);
+				console.error("OWL ERROR - " + err);
 				//this is fine - it just means the cache expired.  Clear the cache to be sure.
 				this.secureCache.clear('secureCache.entries')
 				try_autounlock()

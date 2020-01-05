@@ -69,13 +69,14 @@ export default {
 			<p id="/help/me/choose" v-show="show.help.visible">If you're unsure which to pick, the developers recommend
 				<b>Dropbox</b>. It is easy to use and widely supported by other KeePass 2.x apps, such as
 				<a href="https://play.google.com/store/apps/details?id=keepass2android.keepass2android&hl=en">Keepass2Android</a> for iOS or
-				<a href="https://itunes.apple.com/us/app/keepass-touch/id966759076?mt=8">KeepassTouch</a>. Simply create a Dropbox account, upload your keepass database, and enable the dropbox provider below.</p>
+				<a href="https://itunes.apple.com/us/app/keepass-touch/id966759076?mt=8">KeepassTouch</a>. Simply create a Dropbox account, upload your KeePass 2.x database, and enable the Dropbox provider below.</p>
 
 			<p id="/new/user" v-show="show.newUser.visible">If you've never used KeePass 2.x before, you will need to create a new KeePass 2.x database before enabling the providers below. You can do this by downloading a desktop KeePass 2.x application like
 				<a href="https://keepassxc.org/">KeePassXC</a> or generate one quickly in your browser with
-				<a href="https://app.keeweb.info/">KeeWeb</a>. Store the keepass database file in a cloud provider like
+				<a href="https://app.keeweb.info/">KeeWeb</a>. Store the KeePass 2.x database file in a cloud provider like
 				<a href="https://dropbox.com">Dropbox</a> or
-				<a href="http://drive.google.com">Google Drive</a> and come back here when you're done.</p>
+				<a href="http://drive.google.com">Google Drive</a> and come back here when you're done. <br/>
+				In future versions of Owl, you will be able to create and manage your database within the extension.</p>
 		</div>
 		<oauth-provider :provider-manager="dropboxFileManager" :settings="settings"></oauth-provider>
 		<oauth-provider :provider-manager="googleDriveManager" :settings="settings"></oauth-provider>

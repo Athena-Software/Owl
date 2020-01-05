@@ -39,8 +39,8 @@ export default {
 				}
 			}).catch(err => {
 				this.settings.handleProviderError(err, provider);
-				console.error("Error when trying to listDatabases")
-				console.error(err)
+				console.error("OWL ERROR - Error when trying to list databases!")
+				console.error("OWL ERROR - " + err)
 			})
 		})
 	}

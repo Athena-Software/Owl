@@ -54,12 +54,10 @@ export default {
 		},
 		autofill(e) {
 			e.stopPropagation()
-			console.log("autofill")
 			this.unlockedState.autofill(this.entry);
 		},
 		copy(e) {
 			e.stopPropagation()
-			console.log("copy")
 			this.unlockedState.copyPassword(this.entry);
 		}
 	},
@@ -120,7 +118,7 @@ export default {
 
 <template>
 	<div>
-		<go-back :message="'back to entry list'"></go-back>
+		<go-back :message="'Back to all entries'"></go-back>
 		<div class="box-bar nopad all-attributes">
 
 			<div v-if="otp" class="attribute-box">
@@ -133,7 +131,7 @@ export default {
 			</div>
 
 			<div class="attribute-box" v-for="attr in attributes" v-if="attr.protected || attr.value">
-				<span class="attribute-title">{{ attr.key }}</span>
+				<span class="attribute-title">{{ attr.key.charAt(0).toUpperCase() + attr.key.slice(1) }}</span>
 				<br>
 				<!-- notes -->
 				<pre v-if="attr.key === 'notes'" class="attribute-value">{{ attr.value }}</pre>

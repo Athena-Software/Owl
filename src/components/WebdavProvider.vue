@@ -44,11 +44,14 @@ export default {
 						this.scan(serverInfo.serverId)
 					})
 				}).catch(err => {
-					console.error(err)
-					this.messages.error = err.toString()
+					// Very specific error msg, but makes it more human readable later - ref https://github.com/CER10TY/Owl/issues/11
+					if (err.toString() === "TypeError: serverListItem is undefined") {
+						this.messages.error = "Error: Server already defined"
+					} else {
+						this.messages.error = err.toString()
+					}
 				})
 			}).catch(err => {
-				console.error(err)
 				this.messages.error = err.toString()
 			})
 		},
@@ -121,12 +124,12 @@ export default {
 			:removeable="false"></generic-provider-ui>
 		<div v-if="loggedIn">
 			<div class="warn pill">
-				<p><b>Wait! </b>Did you read the <a href="https://github.com/subdavis/Tusk/wiki/WebDAV-Support">best practices guide</a>?  Do that first!</p>
+				<p><b>Wait!</b> Did you read the <a href="https://github.com/subdavis/Tusk/wiki/WebDAV-Support">best practices guide</a>?  Do that first!</p>
 			</div>
 			<div>
 				<p>The URL below should have the path of a FOLDER, not an individual FILE.  
-					The webDAV provider works by recursively scanning all files within the folder you specify.  
-					Your keepass databases will be discovered by their file extension (.kdbx).</p>
+					The WebDAV provider works by recursively scanning all files within the folder you specify.  
+					Your KeePass 2.x databases will be discovered by their file extension (.kdbx).</p>
 			</div>
 			<table v-if="serverList.length">
 				<tr>
@@ -138,8 +141,7 @@ export default {
 					<td>{{server.username}}</td>
 					<td>{{server.url}}</td>
 					<td>
-						<a v-show="!server.scanBusy" class="selectable" @click="scan(server.serverId)">
-						<i class="fa fa-search"></i> scan</a>
+						<a v-show="!server.scanBusy" class="selectable" @click="scan(server.serverId)"><i class="fa fa-search"></i> scan</a>
 						<a v-show="server.scanBusy"><i class="fa fa-spinner fa-pulse"></i> scanning</a>
 					</td>
 					<td>

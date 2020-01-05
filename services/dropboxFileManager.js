@@ -34,7 +34,7 @@ function DropboxFileManager(settings) {
 			url: 'https://api.dropbox.com/2/files/search',
 			data: {
 				path: '',
-				query: 'kdbx',
+				query: '.kdbx',
 				start: 0,
 				max_results: 100,
 				mode: 'filename'
@@ -106,12 +106,12 @@ function DropboxFileManager(settings) {
 			} else {
 				//some sort of error or parsing failure
 				reject();
-				console.error(redirect_url, " - state was found invalid");
+				console.error("OWL ERROR - " + redirect_url, " - state was found invalid");
 			}
 		} else {
 			//some sort of error
 			reject();
-			console.error(redirect_url, " - something was found invalid");
+			console.error("OWL ERROR - " + redirect_url, " - something was found invalid");
 		}
 	}
 

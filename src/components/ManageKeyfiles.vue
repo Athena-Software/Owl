@@ -62,7 +62,7 @@ export default {
 				</a>
 			</p>
 			<p>
-				Tusk can store your key files locally in your browser's storage, and apply them when opening your password database. Websites and other browser extensions do not have access to these files. However, they are
+				Owl can store your key files locally in your browser's storage, and apply them when opening your password database. Websites and other browser extensions do not have access to these files. However, they are
 				<b>stored unencrypted</b> in your local browser profile and someone with access to your device could potentially read them.
 			</p>
 			<input multiple type="file" style="display:none;" id="file" name='file' @change="handleAdd" />

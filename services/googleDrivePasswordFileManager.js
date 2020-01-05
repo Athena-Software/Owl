@@ -108,7 +108,7 @@ function GoogleDrivePasswordFileManager(settings) {
 					responseType: 'jsonp'
 				}).catch(err => {
 					// Assume the request failed because the token was already bad...
-					console.error(err)
+					console.error("OWL ERROR - " + err)
 					return Promise.resolve();
 				})
 			} else {
@@ -131,12 +131,12 @@ function GoogleDrivePasswordFileManager(settings) {
 			} else {
 				//some sort of error or parsing failure
 				reject(redirect_url);
-				console.error("Auth error with state", redirect_url);
+				console.error("OWL ERROR - Auth error with state", redirect_url);
 			}
 		} else {
 			//some sort of error
 			reject(redirect_url)
-			console.error("Auth Error", redirect_url);
+			console.error("OWL ERROR - Auth Error", redirect_url);
 		}
 	}
 

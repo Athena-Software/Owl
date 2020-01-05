@@ -100,12 +100,12 @@ function OauthManager(settings, oauth) {
 				throw new Error(error)
 
 			if (status >= 400 && status <= 599) {
-				console.error("listDatabases failed with status code", status)
+				console.error("OWL ERROR - listDatabases failed with status code", status)
 				//unauthorized or forbidden, means the token is bad.  retry with new token.
 				let timeoutPromise = new Promise((resolve, reject) => {
 					let waiter = setTimeout(() => {
 						clearTimeout(waiter)
-						console.info("First attempt to listDatabases failed, waiting....")
+						console.info("OWL INFO - First attempt to listDatabases failed, waiting....")
 						resolve(false) // false for no auth intaractivity
 					}, 400) // Wait 400 MS before trying again
 				})
@@ -144,12 +144,12 @@ function OauthManager(settings, oauth) {
 			return oauth.fileRequestFunction(dbInfo, accessToken).then(function (response) {
 				return response.data
 			}).catch(function (error) {
-				console.error("Get chosen file failure:", error)
+				console.error("OWL ERROR - Get chosen file failure:", error)
 				if (error.response === undefined)
 					return Promise.reject({ message: "No network connection" })
 				if (error.response.status == 401) {
 					//unauthorized, means the token is bad.  retry with new token.
-					console.error("Stale token sent for " + oauth.accessTokenType + ": trying passive Oauth Refresh.")
+					console.error("OWL ERROR - Stale token sent for " + oauth.accessTokenType + ": trying passive Oauth Refresh.")
 					return auth(false).then(function () {
 						return getChosenDatabaseFile(dbInfo);
 					})
@@ -176,25 +176,28 @@ function OauthManager(settings, oauth) {
 
 	function auth(interactive) {
 		interactive = !!interactive;
-		console.info("Authenticating for ", oauth.accessTokenType, interactive)
+		console.info("OWL INFO - Authenticating for:", oauth.accessTokenType, interactive)
 
 		let authfunction = is_interactive => {
 			return new Promise(function (resolve, reject) {
 				chromePromise.runtime.getManifest().then(manifest => {
+
+					console.info("Owl is using redirect url: ", chrome.identity.getRedirectURL(oauth.accessTokenType));
+
 					//random state, protects against CSRF
 					var randomState = Base64.encode(window.crypto.getRandomValues(new Uint8Array(16)));
 					var authUrl = oauth.authUrl +
 						'&client_id=' + manifest.static_data[oauth.accessTokenType].client_id +
 						'&state=' + encodeURIComponent(randomState) +
 						'&redirect_uri=' + encodeURIComponent(chrome.identity.getRedirectURL(oauth.accessTokenType));
-					console.info("Sending request for AUTH to", oauth.authUrl);
+					console.info("OWL INFO - Sending request for AUTH to:", oauth.authUrl);
 					chromePromise.identity.launchWebAuthFlow({
 						'url': authUrl,
 						'interactive': is_interactive
 					}).then(redirect_url => {
 						oauth.handleAuthRedirectURI(redirect_url, randomState, resolve, reject);
 					}).catch(function (err) {
-						console.error("Error from webauthflow for", oauth.accessTokenType, err);
+						console.error("OWL ERROR - Error from webauthflow for", oauth.accessTokenType, err);
 						reject(err);
 					});
 				});

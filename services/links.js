@@ -50,7 +50,7 @@ function Links() {
 
 	function openWebstore() {
 		chrome.tabs.create({
-			url: "https://chrome.google.com/webstore/detail/ckpx-chrome-keepass-exten/fmhmiaejopepamlcjkncpgpdjichnecm"
+			url: "https://chrome.google.com/webstore/detail/ckpx-chrome-keepass-exten/fmhmiaejopepamlcjkncpgpdjichnecm" // @TODO: Update with new webstore link
 		})
 	}
 
