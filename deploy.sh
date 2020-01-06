@@ -16,7 +16,9 @@ cd makedocs/.vuepress/dist
 # echo 'www.soeren.codes' > CNAME
 
 git add *
+git stash
 git checkout gh-pages
+git stash apply stash
 git commit -m 'deploy'
 
 # if you are deploying to https://<USERNAME>.github.io
