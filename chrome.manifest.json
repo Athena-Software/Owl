@@ -1,7 +1,7 @@
 {
 	"name": "Owl - Password Access and Autofill for KeePass 2.x",
 	"short_name": "Owl",
-	"version": "2019-12-28",
+	"version": "2019.12.28",
 	"manifest_version": 2,
 	"minimum_chrome_version": "48",
 	"description": "Readonly KeePass 2.x password database integration for Chrome™",
@@ -10,12 +10,11 @@
 		"48": "/assets/icons/exported/owl_48x70.png"
 	},
 	"oauth2": {
-		"client_id": "876467817034-al13p9m2bphgregs0rij76n1tumakcqr.apps.googleusercontent.com",
+		"client_id": "212480071870-s2opocg9q728787qph4eogsko25gsnt9.apps.googleusercontent.com",
 		"scopes": [
 			"https://www.googleapis.com/auth/drive.readonly"
 		]
 	},
-	"key":"MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAhoF/A6nYIxSHW2AekTQRJga9QodwEJBTeAA5r0tW9djrTHY3Ei0FdnUE1FrH2Hx03tsj4RjXMWDHtsqMg4REJdFNzndsRKWvliGomXtxE8XByawJf/NGx0/imAtVBrHc846D/Bn4q1dRaRauqkPMKgpcHoPeg+uLTBIfAn5qPgLlvLLqNSKRg6zGYkm0iBYFiyLd1cqWjsDrVhant90W5rE7qmGQPXZudkc2ejtijuMJL4CF9BeQXOVv/9a0XzAwNbArSr+zHnNOicZPyeEnT7mujFDvLRzXvi7OPW+8mdEsm3AeagKZ6bGUuqyzwxs8XlysWqJsXBoX6tjZCGGVpQIDAQAB",
 	"background": {
 		"scripts": [
 			"dll/dll.library.js",
