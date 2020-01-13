@@ -178,6 +178,8 @@ export default {
 				}
 				if (priorityEntries.length == 0) {
 					this.unlockedMessages.warn = "No matches found for this site."
+					// TODO add maybe show all passwords instead
+					// Security?
 				}
 
 				// Cache in memory
@@ -301,7 +303,6 @@ export default {
 					try_autounlock()
 				}
 			} catch (err) {
-				console.error("OWL ERROR - " + err);
 				//this is fine - it just means the cache expired.  Clear the cache to be sure.
 				this.secureCache.clear('secureCache.entries')
 				try_autounlock()
