@@ -40,19 +40,29 @@ export default {
 			}).then(() => {
 				this.providerManager.addServer(this.webdav.url, this.webdav.username, this.webdav.password).then(serverInfo => {
 					// do somethings
+					this.messages.error = ""
 					return this.updateServerList().then(() => {
 						this.scan(serverInfo.serverId)
 					})
 				}).catch(err => {
+					console.error(err.toString())
 					// Very specific error msg, but makes it more human readable later - ref https://github.com/CER10TY/Owl/issues/11
 					if (err.toString() === "TypeError: serverListItem is undefined") {
-						this.messages.error = "Error: Server already defined"
-					} else {
-						this.messages.error = err.toString()
+						this.messages.error = "Error: Server already defined!"
+					}
+					// Discard other error messages from front end for now - many coming through that don't affect day to day.
+					else {
+						console.error("Owl: Error - ", err.toString())
 					}
 				})
 			}).catch(err => {
-				this.messages.error = err.toString()
+				if (err.toString() === "TypeError: Cannot set property 'scanBusy' of undefined") {
+					// Do nothing, cause it's a garbage error
+				} else if (err.toString() === "Error: Invalid value for origin pattern : Missing scheme separator.") {
+						this.messages.error = "Error: Server address is undefined!"
+				}	else {
+					this.messages.error = err.toString()
+				}
 			})
 		},
 		setBusy(serverId, busy) {

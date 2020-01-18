@@ -67,7 +67,7 @@ function KeepassService(keepassHeader, settings, passwordFileStoreRegistry, keep
 					return processReferences(entries, majorVersion);
 				});
 			} else { // KDB - we don't support this anymore
-				throw "Unsupported Database Version";
+				throw "Unsupported Database Version - Owl does not support .kdb formats! Please update to .kdbx instead.";
 			}
 		}).then(function (entries) {
 			return {

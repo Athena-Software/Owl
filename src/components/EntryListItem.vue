@@ -28,12 +28,10 @@ export default {
 		},
 		autofill(e) {
 			e.stopPropagation()
-			console.log("autofill")
 			this.unlockedState.autofill(this.entry);
 		},
 		copy(e) {
 			e.stopPropagation()
-			console.log("copy")
 			this.unlockedState.copyPassword(this.entry);
 		}
 	}

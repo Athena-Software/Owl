@@ -20,6 +20,7 @@ export default {
 				]
 			},
 			strictMatchEnabled: false,
+			rememberPasswordEnabled: false,
 			notificationsEnabled: ['expiration'],
 			jsonState: [{
 				k: 'databaseUsages',                      // key
@@ -94,6 +95,9 @@ export default {
 		},
 		notificationsEnabled(newval) {
 			this.settings.getSetNotificationsEnabled(newval)
+		},
+		rememberPasswordEnabled(newval) {
+			this.settings.getSetRememberPasswordEnabled(newval)
 		}
 	},
 	methods: {
@@ -120,6 +124,9 @@ export default {
 			})
 			this.settings.getSetStrictModeEnabled().then(val => {
 				this.strictMatchEnabled = val;
+			})
+			this.settings.getSetRememberPasswordEnabled().then(val => {
+				this.rememberPasswordEnabled = val;
 			})
 			if (!isFirefox()) {
 				chrome.permissions.contains(this.allOriginPerms, granted => {
@@ -228,6 +235,25 @@ export default {
 							<input type="checkbox" v-model="strictMatchEnabled">
 							<span class="lever"></span>
 							Strict Matching
+					</label>
+				</div>
+			</div>
+		</div>
+
+		<div class="box-bar roomy">
+			<h4>Enable Remember Password</h4>
+			<p>Currently, Owl cannot update your database entries when auto-unlocking is enabled.
+				To enable auto-updating, the Remember Password functionality was hidden. You can re-enable this functionality here, but please keep in mind that you will have to <b>lock and unlock</b>
+				your database to refresh entries.
+			</p>
+		</div>
+		<div class="box-bar roomy lighter">
+			<div>
+				<div class="switch">
+					<label>
+							<input type="checkbox" v-model="rememberPasswordEnabled">
+							<span class="lever"></span>
+							Remember Password
 					</label>
 				</div>
 			</div>

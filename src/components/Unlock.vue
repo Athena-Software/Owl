@@ -42,6 +42,7 @@ export default {
 			rememberPeriodText: "",
 			databaseFileName: "",
 			keyFilePicker: false,
+			rememberPasswordEnabled: false,
 			appVersion: chrome.runtime.getManifest().version,
 			slider_options: [{
 				time: 0,
@@ -178,6 +179,8 @@ export default {
 				}
 				if (priorityEntries.length == 0) {
 					this.unlockedMessages.warn = "No matches found for this site."
+					// TODO add maybe show all passwords instead
+					// Security?
 				}
 
 				// Cache in memory
@@ -185,7 +188,7 @@ export default {
 				this.unlockedState.cacheSet('priorityEntries', priorityEntries)
 				this.$forceUpdate()
 				//save longer term (in encrypted storage)
-				this.secureCache.save('secureCache.entries', entries);
+				this.secureCache.save('secureCache.entries', entries); // ref https://github.com/CER10TY/Owl/issues/8
 				this.busy = false
 			})
 		},
@@ -249,6 +252,10 @@ export default {
 		}
 	},
 	async mounted() {
+		// Add remember password
+		this.settings.getSetRememberPasswordEnabled().then(enabled => {
+			this.rememberPasswordEnabled = enabled
+		})
 		// modify unlockedState internal state
 		await this.unlockedState.getTabDetails();
 
@@ -295,14 +302,13 @@ export default {
 			this.busy = true
 			try {
 				let entries = await this.secureCache.get('secureCache.entries');
-				if (entries !== undefined && entries.length > 0) {
+				if (entries !== undefined && entries.length > 0 && this.rememberPeriod > 0) {
 					this.showResults(entries)
 				} else {
 					try_autounlock()
 				}
 			} catch (err) {
-				console.error("OWL ERROR - " + err);
-				//this is fine - it just means the cache expired.  Clear the cache to be sure.
+				//this is fine - it just means the cache expired. Clear the cache to be sure.
 				this.secureCache.clear('secureCache.entries')
 				try_autounlock()
 
@@ -373,8 +379,8 @@ export default {
 						</div>
 					</transition>
 				</div>
-
-				<div class="box-bar small plain remember-period-picker">
+				<!-- @TODO - Re-enable the remember box, eventually -->
+				<div class="box-bar small plain remember-period-picker" v-if="rememberPasswordEnabled">
 					<span>
 						<label for="rememberPeriodLength">
 							<span>{{rememberPeriodText}} (slide to choose)</span></label>

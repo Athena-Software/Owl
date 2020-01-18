@@ -1,14 +1,14 @@
 "use strict";
-const Base64 = require('base64-arraybuffer')
-const axios = require('axios')
-import {
-	ChromePromiseApi
-} from '$lib/chrome-api-promise.js'
+
+import { random } from 'case';
+import { ChromePromiseApi } from '$lib/chrome-api-promise';
 import {
 	OauthManager
 } from '$services/oauthManager.js'
 
-const chromePromise = ChromePromiseApi()
+
+const Base64 = require('base64-arraybuffer')
+const axios = require('axios')
 
 function DropboxFileManager(settings) {
 	var accessTokenType = 'dropbox';
@@ -19,8 +19,8 @@ function DropboxFileManager(settings) {
 
 	var oauth = {
 		accessTokenType: accessTokenType,
-		origins: ['https://*.dropbox.com/'],
-		authUrl: 'https://www.dropbox.com/oauth2/authorize?response_type=token&force_reapprove=false',
+		origins: ['https://dropbox.com/oauth2/'],
+		authUrl: 'https://dropbox.com/oauth2/authorize?response_type=token&reject_cors_preflight=true',
 		supportedFeatures: ['incognito', 'listDatabases'],
 		title: 'Dropbox',
 		icon: 'icon-dropbox',
@@ -88,8 +88,8 @@ function DropboxFileManager(settings) {
 		return Promise.resolve()
 	}
 
-	oauth.handleAuthRedirectURI = function (redirect_url, randomState, resolve, reject) {
-
+	oauth.handleAuthRedirectURI = function (redirect_url, randomState) {
+		console.info("OWL INFO - Redirect url:", redirect_url)
 		var tokenMatches = /access_token=([^&]+)/.exec(redirect_url);
 		var stateMatches = /state=([^&]+)/.exec(redirect_url);
 		var uidMatches = /uid=(\d+)/.exec(redirect_url);
@@ -101,16 +101,14 @@ function DropboxFileManager(settings) {
 			if (checkState === randomState) {
 				state.loggedIn = true;
 				settings.getSetAccessToken(accessTokenType, access_token).then(function () {
-					resolve(access_token);
+					return access_token;
 				});
 			} else {
 				//some sort of error or parsing failure
-				reject();
 				console.error("OWL ERROR - " + redirect_url, " - state was found invalid");
 			}
 		} else {
 			//some sort of error
-			reject();
 			console.error("OWL ERROR - " + redirect_url, " - something was found invalid");
 		}
 	}
