@@ -267,7 +267,6 @@ export default {
 					this.keyFiles = keyFiles
 					return this.settings.getSetDefaultRememberPeriod()
 				}).then(rememberPeriod => {
-					console.log(rememberPeriod)
 					this.setRememberPeriod(rememberPeriod)
 					return this.settings.getCurrentDatabaseUsage()
 				}).then(usage => {
