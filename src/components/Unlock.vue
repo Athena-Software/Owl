@@ -188,9 +188,7 @@ export default {
 				this.unlockedState.cacheSet('priorityEntries', priorityEntries)
 				this.$forceUpdate()
 				//save longer term (in encrypted storage)
-				if (this.rememberPasswordEnabled) {
-					this.secureCache.save('secureCache.entries', entries); // ref https://github.com/CER10TY/Owl/issues/8
-				}
+				this.secureCache.save('secureCache.entries', entries); // ref https://github.com/CER10TY/Owl/issues/8
 				this.busy = false
 			})
 		},
@@ -269,6 +267,7 @@ export default {
 					this.keyFiles = keyFiles
 					return this.settings.getSetDefaultRememberPeriod()
 				}).then(rememberPeriod => {
+					console.log(rememberPeriod)
 					this.setRememberPeriod(rememberPeriod)
 					return this.settings.getCurrentDatabaseUsage()
 				}).then(usage => {
@@ -303,9 +302,8 @@ export default {
 
 			this.busy = true
 			try {
-				console.log(this.rememberPasswordEnabled)
 				let entries = await this.secureCache.get('secureCache.entries');
-				if (entries !== undefined && entries.length > 0) {
+				if (entries !== undefined && entries.length > 0 && this.rememberPeriod > 0) {
 					this.showResults(entries)
 				} else {
 					try_autounlock()
