@@ -289,6 +289,10 @@ function Settings(secureCache) {
 		return keyGetSetter('strictMatchModeEnabled', enabled, false, 'boolean')
 	}
 
+	exports.getSetRememberPasswordEnabled = function (enabled) {
+		return keyGetSetter('rememberPasswordEnabled', enabled, false, 'boolean')
+	}
+
 	exports.getSetNotificationsEnabled = function (enabledTypes) {
 		return keyGetSetter('notificationsEnabled', enabledTypes, ['clipboard', 'expiration'], 'object')
 	}
