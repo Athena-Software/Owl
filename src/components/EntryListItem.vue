@@ -24,10 +24,10 @@ export default {
 	},
 	methods: {
 		details(e) {
+			e.stopPropagation()
 			this.$router.route("/entry-details/" + this.entry.id)
 		},
 		autofill(e) {
-			e.stopPropagation()
 			this.unlockedState.autofill(this.entry);
 		},
 		copy(e) {
@@ -39,7 +39,7 @@ export default {
 </script>
 
 <template>
-	<div class="entry-list-item selectable between flair" v-bind:class="{ active: entry.view_is_active }" v-on:click="details">
+	<div class="entry-list-item selectable between flair" v-bind:class="{ active: entry.view_is_active }" v-on:click="autofill">
 		<div class="text-info" v-bind:class="{ strike: entry.is_expired }">
 			<span class="header">{{ header }}</span>
 			<br>
@@ -52,9 +52,9 @@ export default {
 				<i class="fa fa-circle fa-stack-2x"></i>
 				<i class="fa fa-clipboard fa-stack-1x fa-inverse"></i>
 			</span>
-			<span class="fa-stack autofill" v-on:click="autofill">
+			<span class="fa-stack info" v-on:click="details">
 				<i class="fa fa-circle fa-stack-2x"></i>
-				<i class="fa fa-magic fa-stack-1x fa-inverse"></i>
+				<i class="fa fa-info fa-stack-1x fa-inverse"></i>
 			</span>
 		</div>
 	</div>
@@ -84,11 +84,11 @@ export default {
     min-width: 80px;
   }
   .copy,
-  .autofill {
+  .info {
     opacity: 0.2;
   }
   .copy:hover,
-  .autofill:hover {
+  .info:hover {
     opacity: 0.8;
   }
   &.active {
