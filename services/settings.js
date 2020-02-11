@@ -293,6 +293,10 @@ function Settings(secureCache) {
 		return keyGetSetter('rememberPasswordEnabled', enabled, false, 'boolean')
 	}
 
+	exports.getSetAutoSubmitEnabled = function (enabled) {
+		return keyGetSetter('autoSubmitEnabled', enabled, false, 'boolean')
+	}
+
 	exports.getSetNotificationsEnabled = function (enabledTypes) {
 		return keyGetSetter('notificationsEnabled', enabledTypes, ['clipboard', 'expiration'], 'object')
 	}

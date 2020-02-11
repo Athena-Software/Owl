@@ -1,4 +1,5 @@
 import { isVisible, parseUrl } from '$lib/utils.js'
+
 /* 
 Inject script
 
@@ -136,7 +137,10 @@ var filler = (function() {
 
 			if (priorityPair.p && isVisible(priorityPair.p))
 				fillField(priorityPair.p, password);
-
+			
+			// submit the form after filling
+			priorityPair.p.form.submit();
+				
 			return;
 		}
 
