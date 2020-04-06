@@ -8,7 +8,7 @@ import Messenger from '@/components/Messenger'
 
 export default {
 	props: {
-		/* Service dependeicies */
+		/* Service dependencies */
 		unlockedState: Object,
 		secureCache: Object,
 		settings: Object,
