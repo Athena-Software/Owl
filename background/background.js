@@ -96,7 +96,6 @@ function Background(protectedMemory, settings, notifications) {
 					runAt: "document_start"
 				}, function(result) {
 					//script injected
-					console.log("injected")
 					chrome.tabs.sendMessage(message.tabId, {
 						m: "fillPassword",
 						u: message.u,

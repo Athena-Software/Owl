@@ -266,7 +266,7 @@ export default {
 			</div>
 		</div>
 
-		<div class="box-bar roomy">
+		<!--<div class="box-bar roomy">
 			<h4>Enable Auto-Submitting</h4>
 			<p>Enables the feature to submit login forms after autofill is executed.
 			</p>
@@ -281,7 +281,7 @@ export default {
 					</label>
 				</div>
 			</div>
-		</div>
+		</div>-->
 
 		<div class="box-bar roomy">
 			<h4>Stored Data</h4>

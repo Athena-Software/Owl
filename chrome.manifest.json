@@ -1,7 +1,7 @@
 {
 	"name": "Owl - Password Access and Autofill for KeePass 2.x",
 	"short_name": "Owl",
-	"version": "2019.12.28",
+	"version": "2020.04.06",
 	"manifest_version": 2,
 	"minimum_chrome_version": "48",
 	"description": "Readonly KeePass 2.x password database integration for Chrome™",

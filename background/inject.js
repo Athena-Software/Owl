@@ -1,5 +1,4 @@
 import { isVisible, parseUrl } from '$lib/utils.js'
-
 /* 
 Inject script
 
@@ -13,9 +12,7 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
 		return; //unrecognized message format
 
 	//whitelist some known iframe origin mismatches
-	var whiteListedHostnameMismatches = [
-		{documentOrigin: 'onlinebanking.usbank.com', expectedOrigin: 'www.usbank.com'}
-	]
+	var whiteListedHostnameMismatches = []
 
 	if (message.m == 'ping') {
 		// ping, to check if we're injected already
@@ -47,7 +44,6 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
 
 var filler = (function() {
 	"use strict";
-
 	var userPasswordPairs = [];
 	var lonelyPasswords = [];  //passwords without usernames
 	var priorityPair = null;   //most likely pair of fields.
@@ -137,9 +133,14 @@ var filler = (function() {
 
 			if (priorityPair.p && isVisible(priorityPair.p))
 				fillField(priorityPair.p, password);
-			
-			// submit the form after filling
-			priorityPair.p.form.submit();
+
+			// settings.getSetAutoSubmitEnabled().then(function (autosubmit) {
+			// 	if (autosubmit) {
+			// 		priorityPair.p.form.submit();
+			// 	} else {
+			// 		console.log("Auto submit has been disabled!") // DEBUG
+			// 	}
+			// });
 				
 			return;
 		}
