@@ -5,12 +5,38 @@ You can navigate between the different sections by using the sidebar or the arro
 
 ## Download Owl
 
-Want to download Owl and get started right away? You can download Owl in the following stores:
+Currently, Owl is not ready for a release on the Chrome or Firefox Webstore. As such, the only alternative for using Owl is building it yourself and then installing the resulting zip file using the Addon Tab in either Chrome or Firefox.
 
-* [Firefox](#) (coming soon)
-* [Chrome](#) (coming soon)
+### A word of caution
 
-Please note that there are currently no plans to add support for Microsoft Edge.
+Please be aware that Owl is currently in active development and **still considered unsafe and/or unstable**! You should only follow these steps if you are comfortable using a command line and have experience installing Extensions outside of the respective Web Store. Please refrain from using Owl in an enterprise environment or if you are unsure about what you are doing. 
+
+### Building Owl
+
+To build Owl, clone the repository and execute the following statements in the terminal:
+
+```
+yarn install
+yarn build-dll
+yarn build
+```
+
+You've now built Owl. From here, the installation instructions differ for Firefox and Chrome. If you are using Vivaldi or Brave, follow the installation instructions for Chrome.
+
+### Install on Firefox
+
+First, you will have to execute `./packer.sh firefox`. A .zip file has been created for you. Via the three bars to the right, navigate to the Add-ons menu or type in `about:addons` in your browser. Here, click on the cogwheel next to `Manage Your Extensions` and select `Install add-on from file`. Choose the .zip file that was previously created for you.
+
+### Install on Chrome
+
+Chrome does not allow you to simply load packed extensions that are not provided via the Chrome Web Store. To use Owl on Chrome, you'll have to do the following:
+
+1. Rename the provided `chrome.manifest.json` to `manifest.json`.
+2. Navigate to `chrome://extensions` in your browser, or via the three dots > Settings > Extensions.
+3. Enable Developer Mode in the top-right corner.
+4. Select `Load unpacked`, navigating to the folder where your `manifest.json` is stored.
+
+You can now start using Owl.
 
 ## Configure your first database
 
@@ -48,7 +74,9 @@ Of course, you can manually search for entries by using the search bar on top. S
 
 ### Filling in or copying entries
 
-Owl has two icons next to every entry; the magic wand icon automagically fills in the username and password of the selected entry into the currently present input fields. The clipboard will instead copy the password to clipboard (but not the username).
+Since 2020.04.06, Owl has changed the functionality of auto-filling. Previously, there was a "magic wand" icon next to an entry with which forms could be auto-filled. This functionality has now been replaced with simply clicking on the entry to fill in forms. Instead, an "info" icon has taken the place of the "magic wand". By pressing on this, detailed information of the entry can be viewed. 
+
+The clipboard icon still works the same. By pressing on this icon, you will be able to copy the **password** to your clipboard. By default, the clipboard will be cleared again after 2 minutes; you can change this in the Advanced Settings.
 
 ### Viewing entry details
 
