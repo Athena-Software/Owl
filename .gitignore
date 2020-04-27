@@ -40,13 +40,9 @@ store/
 
 #packaged app
 build/
-<<<<<<< HEAD
-*.zip
-=======
 dist/
 *.zip
 *.build.js
->>>>>>> e89bddbffa391e4ebe4dea8f4840332fc75c0d09
 
 #nodejs
 # Logs

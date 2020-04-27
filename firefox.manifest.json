@@ -1,7 +1,7 @@
 {
 	"name": "Owl - Password Access and Autofill for KeePass 2.x",
 	"short_name": "Owl",
-	"version": "2020.04.06",
+	"version": "2020.04.27",
 	"manifest_version": 2,
 	"minimum_chrome_version": "48",
 	"description": "Readonly KeePass 2.x password database integration for Firefox",
@@ -40,20 +40,6 @@
 				"linux": "Ctrl+Shift+Space",
 				"default": "Ctrl+Shift+Space"
 			}
-		}
-	},
-	"static_data": {
-		"dropbox" : {
-			"client_id": "exkvwmhrrromtzh"
-		},
-		"onedrive" : {
-			"client_id" : "352beab6-53e8-4187-9b93-c5915dd268fe"
-		},
-		"gdrive": {
-			"client_id": "212480071870-s2opocg9q728787qph4eogsko25gsnt9.apps.googleusercontent.com"
-		},
-		"pcloud": {
-			"client_id": "JL6WkJefyG7"
 		}
 	},
 	"permissions": [

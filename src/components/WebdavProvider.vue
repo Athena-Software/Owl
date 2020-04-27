@@ -20,7 +20,8 @@ export default {
 			webdav: {
 				username: "",
 				url: "",
-				password: ""
+				password: "",
+				digest: ""
 			},
 			serverList: [],
 			serverListMeta: {}
@@ -38,7 +39,7 @@ export default {
 			chromePromise.permissions.request({
 				origins: [this.webdav.url] //FLAGHERE TODO
 			}).then(() => {
-				this.providerManager.addServer(this.webdav.url, this.webdav.username, this.webdav.password).then(serverInfo => {
+				this.providerManager.addServer(this.webdav.url, this.webdav.username, this.webdav.password, this.webdav.digest).then(serverInfo => {
 					// do somethings
 					this.messages.error = ""
 					return this.updateServerList().then(() => {
@@ -162,10 +163,15 @@ export default {
 			</table>
 			<div v-if="loggedIn">
 				<p><b>Add new server</b></p>
+				<p></p>
 				<div id="webdav-server-input-box">
 					<input id="webdav-server" type="text" v-model="webdav.url" placeholder="http://server:port/remote.php/webdav/">
 					<input id="webdav-username" type="text" v-model="webdav.username" placeholder="Username">
-					<input id="webdav-password" type="password" v-model="webdav.password" placeholder="Password">	
+					<input id="webdav-password" type="password" v-model="webdav.password" placeholder="Password">
+					<div id="digest-space">
+					<label for="webdav-digest">Use digest auth?</label>
+					<input id="webdav-digest" type="checkbox" v-model="webdav.digest">
+					</div>
 				</div>
 				<a class="waves-effect waves-light btn" @click="addServer">Add server</a>
 			</div>	
@@ -177,7 +183,6 @@ export default {
 @import "../styles/settings.scss";
 
 #webdav-server-input-box {
-  display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   box-sizing: border-box;
@@ -194,6 +199,9 @@ export default {
       flex: 1;
     }
   }
+	#digest-space {
+			margin: 5px 0 5px 0;
+	}
 }
 
 table {

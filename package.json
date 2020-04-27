@@ -1,7 +1,7 @@
 {
   "name": "Owl",
   "description": "A browser integration for KeePass 2.x databases",
-  "version": "2.6.0",
+  "version": "3.0.0",
   "author": "Søren Johanson <contact@soeren.codes>",
   "license": "MIT",
   "private": true,
@@ -27,7 +27,7 @@
     "pako": "^1.0.6",
     "vue": "^2.4.4",
     "vue-simple-spinner": "^1.2.8",
-    "webdav": "https://github.com/subdavis/webdav-client#fetchfix",
+    "webdav": "^3.3.0",
     "xmldom": "^0.1.27"
   },
   "browserslist": [
