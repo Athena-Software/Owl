@@ -89,7 +89,6 @@ function DropboxFileManager(settings) {
 	}
 
 	oauth.handleAuthRedirectURI = function (redirect_url, randomState) {
-		console.info("OWL INFO - Redirect url:", redirect_url)
 		var tokenMatches = /access_token=([^&]+)/.exec(redirect_url);
 		var stateMatches = /state=([^&]+)/.exec(redirect_url);
 		var uidMatches = /uid=(\d+)/.exec(redirect_url);

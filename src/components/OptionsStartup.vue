@@ -9,7 +9,7 @@ export default {
 		<div class="box-bar roomy">
 
 			<div class="unlockLogo stack-item optionsheader">
-				<img src="assets/icons/exported/owl_128x159.png" width="128" height="116">
+				<img src="assets/icons/exported/owl-128x128.png" width="128" height="116">
 				<span>Getting Started with Owl</span>
 			</div>
 
@@ -24,11 +24,6 @@ export default {
 			<p>That's it! Owl will automatically discover any KeePass 2.x databases that your have in your cloud storage, and allow you to switch between databases from the browser popup.</p>
 
 			<p>If you are a new KeePass 2.x user, you will be prompted to create a new database from the popup window after you enable a cloud storage provider. Most people keep all their passwords in a single database, so you will only need to do this once.</p>
-		</div>
-		
-		<div class="box-bar roomy lighter">
-			<h4>Support Owl</h4>
-			<p>ToDo</p>
 		</div>
 	</div>
 </template>

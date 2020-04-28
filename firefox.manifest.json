@@ -1,13 +1,14 @@
 {
-	"name": "Owl - Password Access and Autofill for KeePass 2.x",
+	"name": "Owl - Access your KeePass 2.x database",
 	"short_name": "Owl",
-	"version": "2020.04.27",
+	"version": "2020.4.28",
 	"manifest_version": 2,
 	"minimum_chrome_version": "48",
 	"description": "Readonly KeePass 2.x password database integration for Firefox",
 	"icons": {
-		"16": "/assets/icons/exported/owl_16x20.png",
-		"48": "/assets/icons/exported/owl_48x70.png"
+		"16": "/assets/icons/exported/owl-16x16.png",
+		"48": "/assets/icons/exported/owl-48x48.png",
+		"128": "/assets/icons/exported/owl-128x128.png"
 	},
 	"background": {
 		"scripts": [
@@ -16,7 +17,7 @@
 		]
 	},
 	"browser_action": {
-		"default_icon": "assets/icons/exported/owl_38x43.png",
+		"default_icon": "assets/icons/exported/owl-48x48.png",
 		"default_popup": "popup.html",
     "default_title": "Owl"
 	},
@@ -40,6 +41,20 @@
 				"linux": "Ctrl+Shift+Space",
 				"default": "Ctrl+Shift+Space"
 			}
+		}
+	},
+	"static_data": {
+		"dropbox" : {
+			"client_id": "exkvwmhrrromtzh"
+		},
+		"onedrive" : {
+			"client_id" : "ba88fed9-e89e-475f-b661-44eba9d8b721"
+		},
+		"gdrive": {
+			"client_id": "767550936197-68knpppojjq16kl1d9nbltodidt75lbb.apps.googleusercontent.com"
+		},
+		"pcloud": {
+			"client_id": "McYo0doX7pb"
 		}
 	},
 	"permissions": [

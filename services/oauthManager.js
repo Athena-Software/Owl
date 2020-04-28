@@ -105,7 +105,7 @@ function OauthManager(settings, oauth) {
 				let timeoutPromise = new Promise((resolve, reject) => {
 					let waiter = setTimeout(() => {
 						clearTimeout(waiter)
-						console.info("OWL INFO - First attempt to listDatabases failed, waiting....")
+						//console.info("OWL INFO - First attempt to listDatabases failed, waiting....")
 						resolve(false) // false for no auth intaractivity
 					}, 400) // Wait 400 MS before trying again
 				})
@@ -204,7 +204,6 @@ function OauthManager(settings, oauth) {
 		return ensureOriginPermissions().then(ensured => {
 			return authfunction(interactive).then(token => {
 				if (token) {
-					console.info("Successfully logged into", oauth.accessTokenType);
 					state.loggedIn = true;
 				}
 				return token;
