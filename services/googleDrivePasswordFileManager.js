@@ -149,6 +149,7 @@ function GoogleDrivePasswordFileManager(settings) {
 			chrome.identity.getAuthToken({
 				interactive: interactive
 			}, function (token) {
+				console.info(token);
 				if (token)
 					settings.getSetAccessToken(accessTokenType, token).then(function () {
 						resolve(token);
@@ -162,7 +163,7 @@ function GoogleDrivePasswordFileManager(settings) {
 						//too confusing
 						reject(new Error("You must Authorize google drive access to continue."))
 					} else {
-						reject(err);
+						reject(err.message);
 					}
 				}
 			});
