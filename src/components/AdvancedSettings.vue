@@ -21,6 +21,7 @@ export default {
 			},
 			strictMatchEnabled: false,
 			rememberPasswordEnabled: false,
+			autoSubmitEnabled: false,
 			notificationsEnabled: ['expiration'],
 			jsonState: [{
 				k: 'databaseUsages',                      // key
@@ -98,6 +99,9 @@ export default {
 		},
 		rememberPasswordEnabled(newval) {
 			this.settings.getSetRememberPasswordEnabled(newval)
+		},
+		autoSubmitEnabled(newval) {
+			this.settings.getSetAutoSubmitEnabled(newval)
 		}
 	},
 	methods: {
@@ -127,6 +131,9 @@ export default {
 			})
 			this.settings.getSetRememberPasswordEnabled().then(val => {
 				this.rememberPasswordEnabled = val;
+			})
+			this.settings.getSetAutoSubmitEnabled().then(val => {
+				this.autoSubmitEnabled = val;
 			})
 			if (!isFirefox()) {
 				chrome.permissions.contains(this.allOriginPerms, granted => {
@@ -258,6 +265,23 @@ export default {
 				</div>
 			</div>
 		</div>
+
+		<!--<div class="box-bar roomy">
+			<h4>Enable Auto-Submitting</h4>
+			<p>Enables the feature to submit login forms after autofill is executed.
+			</p>
+		</div>
+		<div class="box-bar roomy lighter">
+			<div>
+				<div class="switch">
+					<label>
+							<input type="checkbox" v-model="autoSubmitEnabled">
+							<span class="lever"></span>
+							Auto Submit
+					</label>
+				</div>
+			</div>
+		</div>-->
 
 		<div class="box-bar roomy">
 			<h4>Stored Data</h4>

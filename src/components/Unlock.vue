@@ -8,7 +8,7 @@ import Messenger from '@/components/Messenger'
 
 export default {
 	props: {
-		/* Service dependeicies */
+		/* Service dependencies */
 		unlockedState: Object,
 		secureCache: Object,
 		settings: Object,
@@ -347,7 +347,7 @@ export default {
 		<div id="masterPasswordGroup" v-if="!busy && !isUnlocked()">
 
 			<div class="unlockLogo stack-item">
-				<img src="assets/icons/exported/owl_128x159.png" width="128" height="116">
+				<img src="assets/icons/exported/owl-128x128.png" width="128" height="128">
 				<span>Owl</span>
 			</div>
 
