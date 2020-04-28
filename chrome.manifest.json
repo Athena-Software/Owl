@@ -1,7 +1,7 @@
 {
 	"name": "Owl - Access your KeePass 2.x database",
 	"short_name": "Owl",
-	"version": "2020.4.28",
+	"version": "2020.4.28.1",
 	"manifest_version": 2,
 	"minimum_chrome_version": "48",
 	"description": "Readonly KeePass 2.x password database integration for Chrome™",
