@@ -1,7 +1,7 @@
 {
 	"name": "Owl - Access your KeePass 2.x database",
 	"short_name": "Owl",
-	"version": "2020.4.28",
+	"version": "2020.4.28.1",
 	"manifest_version": 2,
 	"minimum_chrome_version": "48",
 	"description": "Readonly KeePass 2.x password database integration for Firefox",
@@ -51,7 +51,7 @@
 			"client_id" : "ba88fed9-e89e-475f-b661-44eba9d8b721"
 		},
 		"gdrive": {
-			"client_id": "767550936197-68knpppojjq16kl1d9nbltodidt75lbb.apps.googleusercontent.com"
+			"client_id": "767550936197-noui8j77omke259a8dc8kehvn699dckc.apps.googleusercontent.com"
 		},
 		"pcloud": {
 			"client_id": "McYo0doX7pb"

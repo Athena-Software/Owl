@@ -5,7 +5,7 @@
 
 ## Installation
 
-**Firefox:** @TODO: Add store link
+**Firefox:** https://addons.mozilla.org/en-US/firefox/addon/owl-keepass/
 
 **Chrome:** @TODO: Add store link
 
