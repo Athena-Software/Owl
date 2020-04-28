@@ -80,3 +80,4 @@ bower_components/
 yarn.lock
 .vscode
 
+makedocs/.vuepress/dist/*
