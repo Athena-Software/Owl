@@ -8,8 +8,8 @@ actionLink: /documentation/getstarted
 features:
 - title: Built on a solid foundation
   details: Owl is based on both CKP and Tusk, previous KeePass extensions, providing a solid foundation for future development.
-- title: Manage your database
-  details: Owl allows you to manage your database completely in the browser.
+- title: Read and autofill entries
+  details: Owl allows you read and autofill database entries into any form.
 - title: Open Source
   details: Owl is Open Source and MIT licensed. You can contribute and view the source code on GitHub.
 footer: MIT Licensed | Copyright © 2019-present Søren Johanson
@@ -21,4 +21,4 @@ Owl is an extension for Chrome and Firefox that allows users to manage their Kee
 
 ## Please Note
 
-Both the extension and this documentation website are currently undergoing active development. You can watch the [Issue Tracker](https://github.com/CER10TY/Owl/issues) as well as the [author's blog](https://soeren.codes/) for regular updates on Owl.
+Both the extension and this documentation website are currently undergoing active development. You can watch the [Issue Tracker](https://github.com/CER10TY/Owl/issues) as well as the [author's blog](https://soeren.codes/) for regular updates on Owl. However, we've now released our first version on the Firefox AMO and will release the Chrome version in the near future.

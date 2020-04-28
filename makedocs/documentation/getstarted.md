@@ -5,13 +5,14 @@ You can navigate between the different sections by using the sidebar or the arro
 
 ## Download Owl
 
-Currently, Owl is not ready for a release on the Chrome or Firefox Webstore. As such, the only alternative for using Owl is building it yourself and then installing the resulting zip file using the Addon Tab in either Chrome or Firefox.
+Owl is finally released on Firefox!
 
-### A word of caution
+You can download it [here](https://addons.mozilla.org/en-US/firefox/addon/owl-keepass/).
 
-Please be aware that Owl is currently in active development and **still considered unsafe and/or unstable**! You should only follow these steps if you are comfortable using a command line and have experience installing Extensions outside of the respective Web Store. Please refrain from using Owl in an enterprise environment or if you are unsure about what you are doing. 
+Unfortunately, the extension is still being reviewed on Chrome and will likely have to undergo another review because of some changes made.
+As such, Chrome users will still have to build Owl manually and then install the unpacked extension.
 
-### Building Owl
+## Build Owl
 
 To build Owl, clone the repository and execute the following statements in the terminal:
 
