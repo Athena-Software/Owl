@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: https://user-images.githubusercontent.com/5760400/83297859-a5435680-a1f3-11ea-822a-efe7df5b2ab6.png
+heroImage: /owl.svg
 heroText: Owl
 tagline: A KeePass 2.x extension for Chrome and Firefox
 actionText: Get Owl ↓
