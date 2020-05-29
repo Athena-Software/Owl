@@ -21,7 +21,7 @@ In addition, Owl offers a way to connect ("synchronize") a range of third-party 
 You will have to create a separate account on either of these platforms to be able to use them with Owl. Please refer to the Privacy Policy of the respective cloud provider before using them in conjunction with Owl.
 
 ## What Owl Collects
-Owl does **not** transmit any data to external servers. We do not store any of your personal information. All information gathered by Owl is stored in your **local** browser storage and viewable only by you. [[How To Delete Data In Owl]] shows you how to wipe all data saved by Owl from local browser storage.
+Owl does **not** transmit any data to external servers. We do not store any of your personal information. All information gathered by Owl is stored in your **local** browser storage and viewable only by you. [How To Delete Data In Owl](./privacy-policy.md#how-to-delete-data-in-owl) shows you how to wipe all data saved by Owl from local browser storage.
 
 In detail, Owl **may** collect and save the following:
 
@@ -37,7 +37,7 @@ In detail, Owl **may** collect and save the following:
 In addition to saving certain things in your local browser storage, Owl needs certain permissions in both Google Chrome as well as Mozilla Firefox to work properly. These permissions are as follows:
 
 * Owl needs access to your current, active tab to autofill password entries when you select the Autofill action.
-* Owl will need permission to write items to local browser storage. For details on what is written to local browser storage, see [[What Owl Collects]].
+* Owl will need permission to write items to local browser storage. For details on what is written to local browser storage, see [What Owl Collects](./privacy-policy.md#what-owl-collects).
 * Owl will need permission to receive write access to your clipboard. If you choose, you can copy a password to your clipboard to paste it manually.
 * To launch authentication workflows with third-party cloud providers, Owl will need the "identity" permission. With this, authentication workflows can be launched in your name. You will still be asked to consent to any authentication request separately.
 * Owl will ring an alarm when the password currently stored in the clipboard. By default, this happens after 2 minutes. For this to work, a separate permission is needed.
