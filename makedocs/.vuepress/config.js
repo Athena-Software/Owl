@@ -12,7 +12,8 @@ module.exports = {
 	themeConfig: {
     nav: [
       { text: 'Documentation', link: '/documentation/getstarted' },
-      { text: 'Source Code', link: 'https://github.com/CER10TY/Owl' }
+      { text: 'Privacy Policy', link: '/privacy-policy' },
+      { text: 'Source Code', link: 'https://github.com/Athena-Software/Owl' }
 		],
 		sidebar: [
       {
@@ -33,7 +34,13 @@ module.exports = {
         children: [
 					'/documentation/developers/about'
 				]
-			}
+      },
+      {
+        title: 'Privacy Policy',
+        path: 'privacy-policy',
+        collapsable: false,
+        sidebarDepth: 1
+      }
 		]
   },
 	base: '/Owl/'

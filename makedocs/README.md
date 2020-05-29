@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: https://user-images.githubusercontent.com/5760400/71561102-5f326d00-2a72-11ea-8ee2-b2e99ecc8cdc.png
+heroImage: https://user-images.githubusercontent.com/5760400/83297859-a5435680-a1f3-11ea-822a-efe7df5b2ab6.png
 heroText: Owl
 tagline: A KeePass 2.x extension for Chrome and Firefox
 actionText: Get Owl ↓
@@ -21,4 +21,4 @@ Owl is an extension for Chrome and Firefox that allows users to manage their Kee
 
 ## Please Note
 
-Both the extension and this documentation website are currently undergoing active development. You can watch the [Issue Tracker](https://github.com/CER10TY/Owl/issues) as well as the [author's blog](https://soeren.codes/) for regular updates on Owl. However, we've now released our first version on the Firefox AMO and will release the Chrome version in the near future.
+Both the extension and this documentation website are currently undergoing active development. You can watch the [Issue Tracker](https://github.com/Athena-Software/Owl/issues) as well as the [author's blog](https://soeren.codes/) for regular updates on Owl. However, we've now released our first version on the Firefox AMO and will release the Chrome version in the near future.
