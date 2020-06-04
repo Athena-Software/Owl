@@ -119,7 +119,7 @@ export default {
 				<p>
 					Owl
 					<b>cannot</b> keep your local database file up to date.
-					<b>If you change it, you'll have to import it into Tusk again.</b>
+					<b>If you change it, you'll have to import it into Owl again.</b>
 				</p>
 			</div>
 			<div>
